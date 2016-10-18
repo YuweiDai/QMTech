@@ -1,0 +1,9 @@
+﻿1.An entity object cannot be referenced by multiple instances of IEntityChangeTracker
+
+EF数据库上下文没有一致。这里设置为单例模式。与原来MVC模式不同。
+
+2.Autofac webapi owin 问题
+http://stackoverflow.com/search?q=user%3A8116+%5Bautofac%5D+webapi 
+
+No scope with a Tag matching 'AutofacWebRequest' is visible from the scope in which the instance was requested. This generally indicates that a component registered as per-HTTP request is being requested by a SingleInstance() component (or a similar scenario.) 
+Under the web integration always request dependencies from the DependencyResolver.Current or ILifetimeScopeProvider.RequestLifetime, never from the container itself.

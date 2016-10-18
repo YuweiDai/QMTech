@@ -1,0 +1,34 @@
+{
+  "author": {
+    "name": "https://github.com/why520crazy/w5c-validator-angular"
+  },
+  "name": "w5c-validator",
+  "version": "2.4.13",
+  "keywords": [
+    "angular",
+    "validator",
+    "validate"
+  ],
+  "ignore": [
+    "test",
+    "src",
+    "example",
+    "Gruntfile.js",
+    "index.html",
+    "package.json"
+  ],
+  "main": [
+    "w5cValidator.js"
+  ],
+  "homepage": "https://github.com/why520crazy/angular-w5c-validator",
+  "_release": "2.4.13",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.4.13",
+    "commit": "116d333fd4aefba8961edbd6637e1ed4c5e9edbe"
+  },
+  "_source": "https://github.com/why520crazy/angular-w5c-validator.git",
+  "_target": "^2.4.13",
+  "_originalSource": "angular-w5c-validator",
+  "_direct": true
+}

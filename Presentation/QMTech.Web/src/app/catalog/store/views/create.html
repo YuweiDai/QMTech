@@ -1,0 +1,241 @@
+﻿<div ng-controller="StoreCreateOrEditCtrl"  id="storeCreateContainer">
+    <div class="bg-light lter b-b wrapper-md">        
+        <h1 class="m-n font-thin h3">{{storeId==undefined?"新建":"编辑"}}商家</h1>
+    </div>
+
+    <div class="wrapper-md">
+        <!-- toaster directive -->
+        <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true,'time-out': 1000}"></toaster-container>
+        <!-- / toaster directive -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <form name="storeForm" class="form-horizontal form-validation w5c-form" role="form" w5c-form-validate="validation.options" novalidate>
+
+                    <div class="m-b-md">
+                        <a ui-sref="app.catalog.store.list" class="btn btn-default"> <i class="fa fa-arrow-circle-o-left"></i> 商家列表  </a>
+
+                        <div class="pull-right m-t-n-xs">
+                            <a ui-sref="app.catalog.store.detail({id:{{storeId}}})" class="btn btn-default" ng-if="storeId!=undefined">
+                                <i class="fa fa-bookmark"></i> 详细信息
+                            </a>
+                            <button type="submit" class="btn  btn-info" w5c-form-submit="validation.saveEntity($event)" ng-disabled="processingStatus">保存</button>
+                            <button type="submit" class="btn  btn-info" w5c-form-submit="validation.saveEntity($event,true)" ng-disabled="processingStatus">保存，继续编辑</button>
+                        </div>
+                    </div>
+
+                    <!--后台错误-->
+                    <div class="form-group" ng-if="errorMsg">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="alert alert-danger" ng-bind-html="errorMsg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12">
+                            <!--基本信息-->
+                            <div class="panel panel-default">
+                                <div class="panel-heading font-bold">基本信息</div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">名称</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" name="sname" class="form-control" placeholder="输入姓名，长度1-20个汉字" ng-model="store.name" ng-minlength="1" ng-maxlength="20"
+                                                   w5c-unique-check="{url:$root.apiUrl+'Admin/Catalog/stores/Unique/'+store.name,value:store.name,defaultValue:nameDefaultValue}" ng-required="true">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">商家类别</label>
+                                        <div class="col-lg-10">
+                                            <select class="form-control" ng-model="selectedCategory" ng-change="categorySelected()" ng-required="true" name="scategory"
+                                                    ng-options="item as item.Label for item in categories track by item.Value">
+                                                <option value="">---请选择---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">商家 Logo</label>
+                                        <div class="col-sm-10" ng-show="store.logoUrl==null">
+                                            <input ui-jq="filestyle" id="fileInput" type="file" data-icon="false" data-classButton="btn btn-default" data-classInput="form-control inline v-middle input-s">
+                                            <input type="hidden" ng-model="store.logo" name="sLogo" ng-required="store.logoUrl==null" />
+                                            <div class="m-t-md hbox hbox-auto-xs" ng-if="sourceImg!=null">
+                                                <div class="wrapper-sm b-a bg-white m-r-xs m-b-xs">
+                                                    <div class="bg-light" style="height:320px">
+                                                        <img-crop image="sourceImg" result-image="store.logo" result-image-size="160" area-type="Circle"></img-crop>
+                                                    </div>
+                                                </div>
+                                                <div class="inline bg-white wrapper-sm b-a">
+                                                    <div class="bg-light">
+                                                        <img ng-src="{{store.logo}}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-10" ng-if="store.logoUrl!=null">
+                                            <img ng-src="{{store.logoUrl}}" class="img-circle">
+                                            <div>
+                                                <button class="btn btn-danger" ng-click="store.logoUrl=null">删除</button>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">联系方式</label>
+                                        <div class="col-lg-10">
+                                            <input type="tel" name="stel" class="form-control" placeholder="输入手机号码，支持区号-座机，以及手机号" ng-model="store.tel" ng-pattern="/^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$|(^(13[0-9]|15[0|3|6|7|8|9]|18[0-9])\d{8}$)/" ng-required="true">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">地址</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" name="saddress" class="form-control" placeholder="输入地址，2到30个汉字" ng-model="store.address" ng-change="addressChange()" ng-minlength="2" ng-maxlength="60" ng-required="true">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">显示次序</label>
+                                        <div class="col-lg-10">
+                                            <input ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='0' data-verticalbuttons="true"
+                                                   data-verticalupclass="fa fa-caret-up" data-verticaldownclass="fa fa-caret-down" ng-model="store.displayOrder">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">商家介绍</label>
+                                        <div class="col-lg-10">
+                                            <textarea class="form-control" placeholder="150字简介" rows="3" name="sdescription" ng-model="store.description" resize="none"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <div class="checkbox">
+                                                <label class="i-checks">
+                                                    <input type="checkbox" ng-model="store.published"><i></i> 发布
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--基本信息 结束-->
+                            <!--运营信息-->
+                            <div class="panel panel-default">
+                                <div class="panel-heading font-bold">运营信息</div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">24小时营业</label>
+                                        <div class="col-lg-10">
+                                            <div class="checkbox">
+                                                <label class="i-checks">
+                                                    <input type="checkbox" ng-model="store.allOpened"><i></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--营业时间动态-->
+                                    <div ng-if="!store.allOpened">
+                                        <div class="form-group">
+                                            <label class="col-lg-2 control-label">运营开始时间</label>
+                                            <div class="col-lg-10">
+                                                <input type="text" name="sStartTime" w5c-dynamic-element ng-pattern="/^((1|0?)[0-9]|2[0-3]):([0-5][0-9])/" ng-model="store.startTime" placeholder="24小时格式，hh:mm" class="form-control" ng-maxlength="5" ng-required="true">
+                                            </div>
+                                        </div>
+                                        <div class="form-group" ng-if="!store.allOpened">
+                                            <label class="col-lg-2 control-label">运营结束时间</label>
+                                            <div class="col-lg-10">
+                                                <input type="text" name="sEndTime" w5c-dynamic-element ng-pattern="/^((1|0?)[0-9]|2[0-3]):([0-5][0-9])/" ng-model="store.endTime" placeholder="24小时格式，hh:mm" class="form-control" ng-maxlength="5" ng-required="true">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--营业时间动态 end-->
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">自营</label>
+                                        <div class="col-lg-10">
+                                            <div class="checkbox">
+                                                <label class="i-checks">
+                                                    <input type="checkbox" ng-model="store.selfSupport"><i></i>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--营业人动态-->
+                                    <div ng-if="!store.selfSupport">
+                                        <div class="form-group">
+                                            <label class="col-lg-2 control-label">运营人</label>
+                                            <div class="col-lg-10">
+                                                <input type="text" name="sperson" w5c-dynamic-element class="form-control" placeholder="输入姓名，长度2-5个汉字，选填" ng-model="store.person">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-lg-2 control-label">联系方式</label>
+                                            <div class="col-lg-10">
+                                                <input type="text" name="spersontel" w5c-dynamic-element class="form-control" placeholder="输入手机号码，支持区号-座机，以及手机号，选填" ng-model="store.personTel" ng-pattern="/^(0[0-9]{2,3}\-)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?$|(^(13[0-9]|15[0|3|6|7|8|9]|18[0-9])\d{8}$)/">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-lg-2 control-label">营业证</label>
+                                            <div class="col-lg-10">
+                                                <input type="text" name="snumber" w5c-dynamic-element class="form-control" placeholder="输入营业证编号，选填" ng-model="store.salesNumber" ng-minlength="2" ng-maxlength="15">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--营业人动态 end-->
+                                </div>
+                            </div>
+                            <!--运营信息 结束-->
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <!--SEO-->
+                            <div class="panel panel-default">
+                                <div class="panel-heading font-bold">SEO</div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">标题</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" name="sMetaTitle" class="form-control" placeholder="输入SEO标题，长度1-20个汉字" ng-model="store.metaTitle" ng-minlength="1" ng-maxlength="20">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">关键字</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" name="sMetaKeyword" class="form-control" placeholder="输入关键字，多个关键字用逗号隔开" ng-model="store.metaKeywords">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label">描述</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" name="sMetaDescriptions" class="form-control" placeholder="输入描述，长度1-50个汉字" ng-model="store.metaDescription" ng-minlength="1" ng-maxlength="50">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--SEO 结束-->
+                            <!--空间信息-->
+                            <div class="panel panel-default">
+                                <div class="panel-heading font-bold">地图</div>
+                                <div class="panel-body">
+                                    <div id="mapDiv"></div>
+                                </div>
+                            </div>
+                            <!--空间信息 结束-->
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>            
+    </div>
+
+    <!--对话框-->
+    <script type="text/ng-template" id="dialog.html">
+        <div ng-include="'app/views/blocks/dialog.html'"></div>
+    </script>
+</div>

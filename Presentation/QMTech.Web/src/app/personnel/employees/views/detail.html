@@ -1,0 +1,82 @@
+﻿<div ng-controller="EmployeeCtrl">
+    <div class="bg-light lter b-b wrapper-md">
+        <div class="pull-right m-t-n-xs">
+            <a ui-sref="app.personnel.employee.list" class="btn btn-default">
+                <i class="fa fa-arrow-circle-o-left"></i> 员工列表
+            </a>
+            <a ui-sref="app.personnel.employee.edit({id:{{employeeId}}})" class="btn btn-default">
+                <i class="fa fa-pencil"></i> 编辑
+            </a>
+            <button class="btn btn-danger" ng-click="open()" ng-disabled="deleteDisabled">
+                <i class="fa fa-times"></i> 删除
+            </button>
+        </div>
+
+        <h1 class="m-n font-thin h3">员工信息——{{employee.Name}}</h1>
+    </div>
+
+    <div class="wrapper-md">
+       
+        <div class="col-md-12">
+            <uib-alert type="danger" close="" ng-if="error">{{error}}</uib-alert>
+          
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">基本信息</div>
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <td style="width:50%">出生日期</td>
+                            <td>{{employee.BirthDay}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%">手机</td>
+                            <td>{{employee.Mobile}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%">身份证</td>
+                            <td>{{employee.IDCard}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading font-bold">工作信息</div>
+                <table class="table table-bordered table-hover">
+                    <tbody>
+                        <tr>
+                            <td style="width:50%">工号</td>
+                            <td>{{employee.Number}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%">部门</td>
+                            <td>{{employee.DepartmentName}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%">状态</td>
+                            <td>{{employee.StatusDes}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%">入职时间</td>
+                            <td>{{employee.EntryDate}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width:50%">入职时间</td>
+                            <td>{{employee.LeaveDate}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!--删除-->
+            <script type="text/ng-template" id="deleteEmployees.html">
+                <div ng-include="'app/views/blocks/dialog.html'"></div>
+            </script> 
+
+        </div>
+    </div>
+
+    <!--<div data-ng-include=" 'app/views/blocks/dialogs/delete.html' "></div>-->
+
+     
+</div>

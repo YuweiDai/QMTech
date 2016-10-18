@@ -1,0 +1,78 @@
+﻿<div ng-controller="StoreListCtrl">
+
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3">商家列表</h1>
+    </div>
+
+    <div class="wrapper-md">
+
+        <div class="row row-sm text-center">
+            <div class="col-xs-3">
+                <a href class="block panel padder-v bg-primary item">
+                    <span class="text-white font-thin h1 block">
+                        <i class="fa fa-spinner fa-spin" ng-if="response==null"></i>
+                        {{response.statistics.storesCount}}
+                    </span>
+                    <span class="text-muted text-xs">商家</span>
+                    <span class="bottom text-right w-full">
+                        <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href class="block panel padder-v bg-success item">
+                    <span class="text-white font-thin h1 block">
+                        <i class="fa fa-spinner fa-spin" ng-if="response==null"></i>
+                        {{response.statistics.productCount}}
+                    </span>
+                    <span class="text-muted text-xs">商品</span>
+                    <span class="bottom text-right w-full">
+                        <i class="fa fa-cloud-upload text-muted m-r-sm"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href class="block panel padder-v bg-info item">
+                    <span class="text-white font-thin h1 block">
+                        <i class="fa fa-spinner fa-spin" ng-if="response==null"></i>
+                        {{response.statistics.coorperateCount}}
+                    </span>
+                    <span class="text-muted text-xs">合作商家</span>
+                    <span class="top text-left">
+                        <i class="fa fa-caret-up text-warning m-l-sm"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="col-xs-3">
+                <a href class="block panel padder-v bg-warning item">
+                    <span class="text-white font-thin h1 block">
+                        <i class="fa fa-spinner fa-spin" ng-if="response==null"></i>
+                        {{response.statistics.inSalesCount}}
+                    </span>
+                    <span class="text-muted text-xs">营业中</span>
+                    <span class="top text-left">
+                        <i class="fa fa-caret-up text-warning m-l-sm"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper-md">
+        <div class="clearfix m-b">
+            <a ui-sref="app.catalog.store.create" tooltip="" class="btn btn-sm btn-primary btn-addon">
+                <i class="fa fa-plus"></i>添加商家
+            </a>
+        </div>
+        <div class="panel panel-default">
+            <qmtable params="params" response="response" columns="columns" ajax="ajax" tools="{{tools}}" reset="reset"
+                     ext-buttons="extButtons" table-eidt-and-delete="tableEidtAndDelete">
+            </qmtable>
+        </div>
+    </div>
+
+    <!--对话框-->
+    <script type="text/ng-template" id="dialog.html">
+        <div ng-include="'app/views/blocks/dialog.html'"></div>
+    </script>
+</div>

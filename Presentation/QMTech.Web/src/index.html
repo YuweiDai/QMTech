@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>主页</title>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/animate.css/3.4.0/animate.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/font.css" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <link rel="stylesheet" href="css/web.extend.css" type="text/css" />    
+
+    <!--<link rel="stylesheet" href="vendor/jquery/datatables/dataTables.bootstrap.css" type="text/css"/>-->
+</head>
+<body ng-controller="AppCtrl">
+    <div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
+
+    <!-- jQuery -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Angular -->
+    <script src="//cdn.bootcss.com/angular.js/1.4.8/angular.js"></script>
+
+    <script src="//cdn.bootcss.com/angular.js/1.4.8/angular-animate.js"></script>
+
+    <script src="vendor/angular/angular-cookies/angular-cookies.js"></script>
+    <script src="//cdn.bootcss.com/angular-resource/1.4.8/angular-resource.js"></script>
+    <script src="//cdn.bootcss.com/angular-sanitize/1.4.8/angular-sanitize.js"></script>
+    <script src="vendor/angular/angular-touch/angular-touch.js"></script>
+
+    <script src="//cdn.bootcss.com/ngStorage/0.3.10/ngStorage.min.js"></script>
+    <script src="//cdn.bootcss.com/angular-ui-utils/0.1.1/angular-ui-utils.min.js"></script>
+
+    <!--验证-->
+    <!--<script src="//cdn.bootcss.com/angular-messages/1.4.8/angular-messages.min.js"></script>-->
+
+    <script src="//cdn.bootcss.com/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+
+    <!--<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=1e4ff737e5e9e2f63cc3333316b38a7c"></script>
+    <script type="text/javascript" src="vendor/modules/angular-amap/angular-amap.js"></script>-->
+    <!--时间组件-->
+    <script src="//cdn.bootcss.com/moment.js/2.11.2/moment.min.js"></script>
+    <script src="//cdn.bootcss.com/moment.js/2.11.2/locale/zh-cn.js"></script>
+    <script src="//cdn.bootcss.com/angular-moment/1.0.0-beta.4/angular-moment.min.js"></script>
+
+
+
+    <!-- bootstrap -->
+    <!--<script src="//cdn.bootcss.com/angular-ui-bootstrap/1.0.3/ui-bootstrap-tpls.js"></script>-->
+    <script src="//cdn.bootcss.com/angular-ui-bootstrap/2.0.0/ui-bootstrap-tpls.min.js"></script>
+    <!-- lazyload -->
+    <script src="vendor/angular/oclazyload/ocLazyLoad.js"></script>
+
+    <!-- 自定义UI 组件 -->
+    <script src="app/common/directives/qm-ui.js"></script>
+
+
+
+    <!-- App -->
+    <script src="app/app.js"></script>
+    <script src="app/config.js"></script>
+    <script src="app/config.lazyload.js"></script>
+    <script src="app/config.router.js"></script>
+    <script src="app/config.auth.js"></script>
+    <script src="app/main.js"></script>
+
+    <!--Services-->
+    <script src="app/common/services/ui-load.js"></script>
+    <!--Directive-->
+    <script src="app/common/directives/setnganimate.js"></script>
+    <script src="app/common/directives/ui-butterbar.js"></script>
+    <script src="app/common/directives/ui-focus.js"></script>
+    <script src="app/common/directives/ui-fullscreen.js"></script>
+    <script src="app/common/directives/ui-jq.js"></script>
+    <script src="app/common/directives/ui-module.js"></script>
+    <script src="app/common/directives/ui-nav.js"></script>
+    <script src="app/common/directives/ui-scroll.js"></script>
+    <script src="app/common/directives/ui-shift.js"></script>
+    <script src="app/common/directives/ui-toggleclass.js"></script>
+
+    <!--auth-->
+    <script src="app/common/services/authInterceptorService.js"></script>
+    <script src="app/common/services/authService.js"></script>
+</body>
+</html>

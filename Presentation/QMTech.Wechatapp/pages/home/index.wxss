@@ -1,0 +1,22 @@
+.swiper-item{
+    display: block;
+    height: 150px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.menu__panel
+{
+  border-bottom:solid 1px silver;
+}
+.menueview{
+  display:flex;
+  background-color:#FFF;
+  padding:5px 0
+}
+.menue-image{
+  flex:1;
+  height:70px;
+  height:auto
+}

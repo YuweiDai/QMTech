@@ -1,0 +1,97 @@
+﻿<div class="qmTables">
+    <div class="row wrapper">
+        <div class="col-sm-9 m-b-xs">
+            <div class="btn-group">
+                <button class="btn btn-sm btn-default" ng-click="setRowSelectiton(true)"><i class="fa fa-check-square-o"></i> 全选</button>
+                <button class="btn btn-sm btn-default" ng-click="switchSelection()"><i class="fa fa-minus-square-o"></i> 反选</button>
+                <button class="btn btn-sm btn-default" ng-click="setRowSelectiton(false)"><i class="fa fa-square-o"></i> 取消选择</button>
+            </div>
+            <button class="btn btn-sm btn-default">导出</button>
+            <button class="btn btn-sm btn-danger" ng-if="selectedRowCount>0" ng-click="tableEidtAndDelete.del(rows)">删除选中</button>
+           
+            <span ng-repeat="button in extButtons ">
+                <btn ng-if="button.checked" class="btn btn-default btn-sm" ui-toggle-class="btn-warning" ng-click="button.click()" ng-bind-html="button.caption">
+                    <span class="text">加载未发布的商家</span>
+                    <span class="text-active">移除未发布的商家</span>
+                </btn>
+                <button ng-if="!button.checked"  class="btn btn-sm btn-default" ng-click="button.click()">{{button.caption}}</button>
+            </span>            
+        </div>
+        <div class="col-sm-3">
+            <input type="text" class="input-sm form-control" placeholder="输入要搜索的关键字..." ng-model="searchValue" ng-change="setParams(true)">
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover b-t b-light">
+            <thead>
+                <tr>
+                    <th class="text-center" style="width:70px;">
+                        <label class="i-checks m-b-none">
+                            <input type="checkbox" ng-click="setRowSelectiton(selectAll)" ng-model="selectAll"><i></i>
+                        </label>
+                    </th>
+                    <th class="text-center" style="width:70px;">序号</th>
+                    <th ng-repeat="column in columns" ng-style="{'width':column.width}" ng-click="setOrder(column,true)"
+                        ng-class="{'text-center':column.alignCenter,'sorting':column.orderable&&!column.dir,'sorting_asc':column.orderable&&(column.dir=='asc'),'sorting_desc':column.orderable&&(column.dir=='desc')}">
+                        {{column.title}}
+                    </th>
+                    <th class="text-center" style="width:150px" ng-if="tableEidtAndDelete!=undefined"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="row in rows">
+                    <td class="text-center" style="width:20px;">
+                        <label class="i-checks m-b-none">
+                            <input type="checkbox" ng-checked="row.selected" ng-model="row.selected" ng-change="selectedRowChange(row)"><i></i>
+                        </label>
+                    </td>
+                    <td class="text-center text-muted">{{$index +1 }}</td>
+                    <td class="text-muted" ng-class="{'text-center':column.alignCenter}" ng-repeat="column in columns">
+                        <!--超链接的显示-->
+                        <a class="text-muted" ng-if="column.type=='link'" ng-click="column.click(row.Id)">{{row[column.name]}}</a>
+                        <!--Bool型显示-->
+                        <i ng-if="column.type=='bool' && row[column.name]" class="fa fa-check text-success"></i>
+                        <!--普通显示-->
+                        <span ng-if="column.type==undefined"> {{row[column.name]}}</span>
+                    </td>
+                    <td class="text-center" style="width:150px" ng-if="tableEidtAndDelete!=undefined">
+                        <a class="text-muted" ng-click="tableEidtAndDelete.edit(row.Id)">编辑</a>
+                        <a class="text-muted" ng-click="tableEidtAndDelete.del([row])">删除</a>
+                    </td>
+                </tr>
+
+                <!--返回结果为空时-->
+                <tr ng-if="rows.length==0"><td colspan="{{columns.length+3}}" class="text-center">没有任何数据</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <footer class="panel-footer">
+        <div class="row">
+            <div class="col-sm-4 hidden-xs">
+                每页显示：
+                <select class="input-sm form-control w-sm inline v-middle" ng-model="tableConfig.page.length" ng-change="setParams(true)"
+                        ng-options="pageOption for pageOption in tableConfig.pageSizeOptions"></select>
+            </div>
+            <div class="col-sm-4 text-center">
+                <small class="text-muted inline m-t-sm m-b-sm">显示 {{tableConfig.page.start  +1}}-{{tableConfig.page.start + tableConfig.page.length }} 条 一共 {{tableConfig.page.allRecords}} 条记录</small>
+            </div>
+            <div class="col-sm-4 text-right text-center-xs">
+                <ul class="pagination pagination-sm m-t-none m-b-none" ng-if="tableConfig.page.total>1">
+                    <li ng-class="{'disabled':tableConfig.page.index==0}" ng-click="flipPage(0)" title="首页"><a href><i class="fa fa-angle-double-left"></i></a></li>
+                    <li ng-class="{'disabled':tableConfig.page.index==0}" ng-click="flipPage(tableConfig.page.index-1)" title="上页"><a href><i class="fa fa-angle-left"></i></a></li>
+                    <li ng-class="{'active':page==(tableConfig.page.index+1)}" ng-repeat="page in tableConfig.page.list" ng-click="flipPage(page-1)"><a href="javascript:void(0)">{{page}}</a></li>
+                    <li ng-class="{'disabled':tableConfig.page.index==tableConfig.page.total-1}" ng-click="flipPage(tableConfig.page.index+1)" title="下页"><a href><i class="fa fa-angle-right"></i></a></li>
+                    <li ng-class="{'disabled':tableConfig.page.index==tableConfig.page.total-1}" ng-click="flipPage(tableConfig.page.total-1)" title="末页"><a href><i class="fa fa-angle-double-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="processing-bg" ng-if="processing">
+        <div class="processing">处理中...</div>
+    </div>
+
+    <!--删除-->
+    <script type="text/ng-template" id="deleteRow.html">
+        <div ng-include="'app/views/blocks/dialog.html'"></div>
+    </script>
+</div>

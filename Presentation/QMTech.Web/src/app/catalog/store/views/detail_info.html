@@ -1,0 +1,111 @@
+﻿<div class="wrapper-md" ng-controller="StoreMapCtrl">
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    基本信息
+                </div>
+                <table class="table table-striped table-hover table-border m-b-none">
+                    <tbody>
+                        <tr>
+                            <td class="font-bold">名称</td>
+                            <td>{{store.name}}</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">显示次序</td>
+                            <td>{{store.displayOrder}}</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">商家类别</td>
+                            <td>{{store.categoryName}}</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">联系方式</td>
+                            <td>{{store.tel}}</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">地址</td>
+                            <td>{{store.Address}}</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">商家介绍</td>
+                            <td>{{store.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    运营信息
+                </div>
+                <table class="table table-striped table-hover table-border m-b-none">
+                    <tbody>
+                        <tr ng-if="store.allOpened">
+                            <td class="font-bold">24小时营业</td>
+                            <td class="text-left"><i class="fa fa-check text-success"></i></td>
+                        </tr>
+                        <tr ng-if="!store.allOpened">
+                            <td class="font-bold">运营开始时间</td>
+                            <td>{{store.startTime}}</td>
+                        </tr>
+                        <tr ng-if="!store.allOpened">
+                            <td class="font-bold">运营结束时间</td>
+                            <td>{{store.endTime}}</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">自营</td>
+                            <td class="text-left">
+                                <i ng-if="store.selfSupport" class="fa fa-check text-success"></i>
+                                <i ng-if="!store.selfSupport" class="fa fa-times text-danger"></i>
+                            </td>
+                        </tr>
+                        <tr ng-if="!store.selfSupport">
+                            <td class="font-bold">运营人</td>
+                            <td>{{store.person}}</td>
+                        </tr>
+                        <tr ng-if="!store.selfSupport">
+                            <td class="font-bold">联系方式</td>
+                            <td>{{store.personTel}}</td>
+                        </tr>
+                        <tr ng-if="!store.selfSupport">
+                            <td class="font-bold">营业证</td>
+                            <td><a class="text-primary" href="#" title="点击查看照片">{{store.salesNumber}}</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">SEO</div>
+                <table class="table table-striped table-hover table-border m-b-none">
+                    <tbody>
+                        <tr>
+                            <td class="font-bold">标题</td>
+                            <td>{{store.metaTitle}}</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">关键字</td>
+                            <td>{{store.metaKeywords}}</td>
+                        </tr>
+                        <tr>
+                            <td class="font-bold">描述</td>
+                            <td>{{store.metaDescription}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">位置信息</div>
+                <div class="panel-body">
+                    <div style="height:300px;" id="mapDiv"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  

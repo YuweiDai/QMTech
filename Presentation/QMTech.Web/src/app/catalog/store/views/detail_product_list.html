@@ -1,0 +1,19 @@
+﻿<div ng-controller="StoreProductListCtrl">
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3">商品列表</h1>
+    </div>
+
+    <div class="wrapper-md">
+        <div class="clearfix m-b">
+            <a ui-sref="app.catalog.store.detail.product.create" tooltip="" class="btn btn-sm btn-primary btn-addon">
+                <i class="fa fa-plus"></i>添加商品
+            </a>
+        </div>
+        <div class="panel panel-default">
+            <qmtable params="params" response="response" columns="columns" ajax="ajax" tools="{{tools}}" reset="reset"
+                     ext-buttons="extButtons" table-eidt-and-delete="tableEidtAndDelete">
+            </qmtable>
+        </div>
+    </div>
+    
+    </div>

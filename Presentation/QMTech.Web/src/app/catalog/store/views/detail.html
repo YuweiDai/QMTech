@@ -1,0 +1,45 @@
+﻿<div class="hbox hbox-auto-xs hbox-auto-sm" ng-controller="StoreCtrl" id="storeDetialContainer">
+    <div style="background:url(https://static11.elemecdn.com/eleme/desktop/media/img/shop-bg.0391dd.jpg) center center; background-size:cover">
+        <div class="wrapper-lg bg-white-opacity">
+            <div class="row m-t">
+                <div class="col-sm-7">
+                    <a href class="thumb-lg pull-left m-r">
+                        <img ng-src="{{store.logoUrl}}" class="img-circle">
+                    </a>
+                    <div class="clear m-b">
+                        <div class="m-b m-t-sm">
+                            <span class="h3 text-black">{{store.name}}</span>
+                            <span ng-if="store.published" class="text-danger">未发布</span>
+                        </div>
+                        <p class="m-b">{{store.Address}}</p>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="pull-right pull-none-xs text-center">
+                        <a class="btn btn-rounded btn-icon btn-default" ui-sref="app.catalog.store.list" title="返回列表"><i class="fa fa-arrow-left"></i></a>             
+                        <a class="btn btn-rounded btn-icon btn-default" ui-sref="app.catalog.store.edit({id:{{storeId}}})" title="编辑"><i class="fa fa-pencil"></i></a>          
+                        <button class="btn btn-rounded btn-icon btn-danger" title="删除商家" ng-click="deleteStore()"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper bg-white b-b navBar">
+        <ul class="nav nav-pills nav-sm">
+            <li ui-sref-active="active"><a ui-sref="app.catalog.store.detail.overview">总览</a></li>
+            <li ui-sref-active="active"><a ui-sref="app.catalog.store.detail.info">概况信息</a></li>
+            <li ui-sref-active="active"><a ui-sref="app.catalog.store.detail.category">商品分类</a></li>
+            <li ng-class="{active:$state.includes('app.catalog.store.detail.product')}"><a ui-sref="app.catalog.store.detail.product.list">商品管理</a></li>
+            <li ui-sref-active="active"><a ui-sref="app.catalog.store.detail.order">订单信息</a></li>
+            <li ui-sref-active="active"><a ui-sref="app.catalog.store.detail.comment">商品评论</a></li>
+        </ul>            
+    </div>
+    <div>                              
+        <div ui-view></div>             
+    </div>
+
+    <!--对话框-->
+    <script type="text/ng-template" id="dialog.html">
+        <div ng-include="'app/views/blocks/dialog.html'"></div>
+    </script>
+</div>

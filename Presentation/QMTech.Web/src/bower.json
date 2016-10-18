@@ -1,0 +1,19 @@
+{
+  "name": "QMTech.Web",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "vendor",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "oclazyload": "~1.0.9"
+  }
+}

@@ -1,0 +1,394 @@
+﻿<div ng-controller="StoreProductCreateOrEditCtrl">
+    <div class="bg-light lter b-b wrapper-md">
+        <h1 class="m-n font-thin h3">创建商品</h1>
+    </div>
+
+    <div class="wrapper-md">
+        <!-- toaster directive -->
+        <toaster-container toaster-options="{'position-class': 'toast-bottom-right', 'close-button':true,'time-out': 1000}"></toaster-container>
+        <!-- / toaster directive -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <form name="productForm" class="form-horizontal form-validation w5c-form" role="form" w5c-form-validate="validation.options" novalidate>
+
+                    <div class="m-b-md">
+                        <a ui-sref="app.catalog.store.detail.product.list({id:{{storeId}}})" class="btn btn-default">
+                            <i class="fa fa-arrow-circle-o-left"></i> 商品列表
+                        </a>
+
+                        <div class="pull-right m-t-n-xs">
+                            <a ui-sref="app.catalog.store.detail.product.detail({id:{{storeId}},productId:{{productId}}})" class="btn btn-default" ng-if="productId!=undefined">
+                                <i class="fa fa-bookmark"></i> 商品详情
+                            </a>
+                            <button type="submit" class="btn  btn-info" w5c-form-submit="validation.saveEntity($event)" ng-disabled="processingStatus">保存</button>
+                            <button type="submit" class="btn  btn-info" w5c-form-submit="validation.saveEntity($event,true)" ng-disabled="processingStatus">保存，继续编辑</button>
+                        </div>
+                    </div>
+
+                    <!--表单验证错误-->
+                    <!--<div class="form-group" ng-if="productForm.$errors.length > 0 ">
+            <div class="col-lg-12 col-md-12">
+                <div class="alert alert-danger">
+                    <ui>
+                        <li ng-repeat="error in productForm.$errors track by $index">
+                            {{error}}
+                        </li>
+                    </ui>
+                </div>
+            </div>
+        </div>-->
+                    <!--后台错误-->
+                    <div class="form-group" ng-if="errorMsg">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="alert alert-danger">
+                                {{errorMsg}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <uib-tabset class="tab-container">
+                        <!--基本信息-->
+                        <uib-tab>
+                            <uib-tab-heading>
+                                <i class="fa fa-book"></i> 基本信息
+                            </uib-tab-heading>
+                            <div class="wrapper">
+                         
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">名称</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="pname" class="form-control" placeholder="输入商品名称，长度1-20个汉字" w5c-dynamic-element ng-model="product.name"
+                                               w5c-unique-check="{url:$root.apiUrl+'Admin/Catalog/stores/'+storeId+'/Unique/'+product.name+(productId?'?productId='+productId:''),value:product.name,defaultValue:nameDefaultValue}"
+                                               ng-minlength="1" ng-maxlength="20" ng-required="true">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">商品类别</label>
+                                    <div class="col-lg-10">
+                                        <select class="form-control" w5c-dynamic-element ng-model="selectedCategory" ng-required="true" name="pcategory" ng-change="product.productCategoryId=selectedCategory.Value"
+                                                ng-options="item as item.Label for item in categories track by item.Value">
+                                            <option value="">---请选择---</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">商品标签</label>
+                                    <div class="col-lg-10">
+                                        <ui-select multiple tagging="tagTransform" tagging-label="123" ng-model="product.productTags" theme="bootstrap" title="选择商品标签">
+                                            <ui-select-match placeholder="选择商品标签">{{$item.name}}</ui-select-match>
+                                            <ui-select-choices repeat="tag in tags track by $index" refresh="refreshProductTags($select.search)" refresh-delay="0" minimum-input-length="1">
+                                                <div ng-if="tag.isTag" ng-bind-html="tag.name +' <small>(新增)</small>'| highlight: $select.search"></div>
+                                                <div ng-if="!tag.isTag" ng-bind-html="tag.name + tag.isTag| highlight: $select.search"></div>
+                                            </ui-select-choices>
+                                            <ui-select-no-choice>
+                                                没有任何标签
+                                            </ui-select-no-choice>
+                                        </ui-select>
+                                    </div>
+                                </div>
+
+                                <!--<div class="form-group">
+                        <label class="col-lg-2 control-label">组合商品</label>
+                        <div class="col-lg-10">
+                            <div class="checkbox">
+                                <label class="i-checks">
+                                    <input type="checkbox" ng-model="product.groupedProduct"><i></i>
+                                </label>
+                            </div>
+                        </div>
+                    </div>-->
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">管理员评论</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="pAdminComment" class="form-control" placeholder="管理员评论" w5c-dynamic-element ng-model="product.adminComment" ng-maxlength="150">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">简单描述</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="pShortDes" class="form-control" placeholder="150字的描述" w5c-dynamic-element ng-model="product.shortDescription" ng-maxlength="150">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">详细信息</label>
+                                    <div class="col-lg-10">
+                                        <div keditor ng-model="product.fullDescription"></div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">设置商品有效期</label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label class="i-checks">
+                                                <input type="checkbox" ng-model="product.hasValidDate"><i></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" ng-if="product.hasValidDate">
+                                    <label class="col-lg-2 control-label">商品有效日期</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" ui-jq="daterangepicker" class="form-control" name="daterange" ng-model="product.availableDateRange" ui-options="validDateRangeOptions" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">新上市</label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label class="i-checks">
+                                                <input type="checkbox" ng-model="product.isNew"><i></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">发布</label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label class="i-checks">
+                                                <input type="checkbox" ng-model="product.published"><i></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </uib-tab>
+                        <!--基本信息 结束-->
+                        <!--价格信息-->
+                        <uib-tab heading="价格信息">
+                            <div class="wrapper">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">禁用购买按钮</label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label class="i-checks">
+                                                <input type="checkbox" ng-model="product.buyDisabled"><i></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">成本价</label>
+                                    <div class="col-lg-4">
+                                        <input ui-jq="TouchSpin" type="text" name="pProductCost" class="form-control" data-min='1' data-verticalbuttons="true" data-step="0.1" data-decimals="1" data-prefix="￥"
+                                               data-verticalupclass="fa fa-caret-up" data-verticaldownclass="fa fa-caret-down" w5c-dynamic-element ng-model="product.productCost">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">原价</label>
+                                    <div class="col-lg-4">
+                                        <input ui-jq="TouchSpin" type="text" name="pOldPrice" class="form-control" data-min='1' data-verticalbuttons="true" data-step="0.1" data-decimals="1" data-prefix="￥"
+                                               data-verticalupclass="fa fa-caret-up" data-verticaldownclass="fa fa-caret-down" w5c-dynamic-element ng-model="product.oldPrice">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">价格</label>
+                                    <div class="col-lg-4">
+                                        <input ui-jq="TouchSpin" type="text" name="pPrice" class="form-control" data-min='1' data-verticalbuttons="true" data-step="0.1" data-decimals="1" data-prefix="￥"
+                                               data-verticalupclass="fa fa-caret-up" data-verticaldownclass="fa fa-caret-down" w5c-dynamic-element ng-model="product.price" />
+                                        <!-- w5c-customizer="validation.priceCompare(product.specialPrice,product.price)" associate="pPrice" >-->
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">特价</label>
+                                    <div class="col-lg-4">
+                                        <input ui-jq="TouchSpin" type="text" name="pSpecialPrice" class="form-control" data-min='0' data-verticalbuttons="true" data-step="0.1" data-decimals="1" data-prefix="￥"
+                                               data-verticalupclass="fa fa-caret-up" data-verticaldownclass="fa fa-caret-down" w5c-dynamic-element ng-model="product.specialPrice" />
+                                        <!-- w5c-customizer="validation.priceCompare(product.specialPrice,product.price)" associate="pPrice" >-->
+                                    </div>
+                                </div>
+
+                                <div class="form-group" ng-if="product.specialPrice>0">
+                                    <label class="col-lg-2 control-label">设置商品特价有效期</label>
+                                    <div class="col-lg-10">
+                                        <div class="checkbox">
+                                            <label class="i-checks">
+                                                <input type="checkbox" ng-model="product.hasSpecialPrice"><i></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group" ng-if="product.hasSpecialPrice">
+                                    <label class="col-lg-2 control-label">特价日期</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" ui-jq="daterangepicker" class="form-control" name="daterange" ng-model="product.specialDateRange" ui-options="specialDateRangeOptions" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </uib-tab>
+                        <!--价格信息 结束-->
+                        <!--组合商品-->
+                        <uib-tab heading="组合商品" ng-if="product.groupedProduct">
+                        </uib-tab>
+                        <!--组合商品 结束-->
+                        <!--SEO-->
+                        <uib-tab heading="SEO信息">
+                            <div class="wrapper">
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">标题</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="pMetaTitle" class="form-control" placeholder="输入SEO标题，长度1-20个汉字" w5c-dynamic-element ng-model="product.metaTitle" ng-minlength="1" ng-maxlength="20">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">关键字</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="pMetaKeyword" class="form-control" placeholder="输入关键字，多个关键字用逗号隔开" w5c-dynamic-element ng-model="product.metaKeywords">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-lg-2 control-label">描述</label>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="pMetaDescriptions" class="form-control" placeholder="输入描述，长度1-50个汉字" w5c-dynamic-element ng-model="product.metaDescription" ng-minlength="1" ng-maxlength="50">
+                                    </div>
+                                </div>
+                            </div>
+                        </uib-tab>
+                        <!--SEO 结束-->
+                        <!--图片信息-->
+                        <uib-tab heading="图片" select="uploadInit()">
+                            <div class="wrapper">
+
+                                <div ng-if="product.id==null" class="text-warning text-center">
+                                    <h2>请保存商品后，添加图片信息</h2>
+                                </div>                         
+
+                                <div id="fileUploadContainer" ng-if="product.id!=null">
+                                    <div class="form-group">
+                                        <div class="col-lg-2">
+                                            <div id="filePicker">选择图片</div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <button class="btn btn-danger" id="deleteAllBtn" ng-click="removeAllImgs()">删除所有</button>
+                                        </div>
+                                    </div>
+                                    <div class="uploader-list form-group" id="fileList">
+                                        <div class="col-lg-12">
+                                            <div id="{{img.fileId}}" class="file-item thumbnail m-r-md" ng-class="{'selected':img.selected}" ng-repeat="img in product.ProductPictures track by $index"
+                                                 ng-mouseenter="img.hovered=true" ng-mouseleave="img.hovered=false" ng-click="selectPicutre(img);">
+                                                <div class="file-panel" ng-if="img.hovered">
+                                                    <span title="删除" ng-click="removeImg(img,$index)"><i class="fa fa-trash"></i></span>
+                                                    <!--<span title="向右旋转"><i class="fa fa-undo"></i></span>
+                                                    <span title="向左旋转"><i class="fa fa-repeat"></i></span>-->
+                                                </div>
+                                                <img ng-src="{{img.Src}}" />
+
+                                                <div ng-if="img.id==undefined">
+                                                    <div class="status" ng-class="{'error':img.error,'success':!img.error}" ng-if="img.uploaded">{{img.status}}</div>
+                                                    <div class="status processing" ng-if="!img.uploaded">上传中... {{img.percentage}}%</div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="productPictureDetail" ng-if="product.selectedImg!=null">
+                                        <div class="form-group">
+                                            <label class="col-lg-2 control-label">标题</label>
+                                            <div class="col-lg-8">
+                                                <input type="tel" name="pShortDes" class="form-control" placeholder="图片标题" ng-model="product.selectedImg.Title">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-lg-2 control-label">Alt替换文字</label>
+                                            <div class="col-lg-8">
+                                                <input type="tel" name="pShortDes" class="form-control" placeholder="" ng-model="product.selectedImg.Alt">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-lg-2 control-label">显示次序</label>
+                                            <div class="col-lg-4">
+                                                <input ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='0' data-verticalbuttons="true"
+                                                       data-verticalupclass="fa fa-caret-up" data-verticaldownclass="fa fa-caret-down" ng-model="product.selectedImg.displayOrder">
+                                            </div>
+                                        </div>
+
+                                    </div>
+ 
+                                </div>
+
+                               
+
+                                <!--批量上传HTML，只改了部分
+                    <div id="fileUploadContainer">
+                        <div class="uploader">
+                            <div class="queueList">
+                                <div id="dndArea" class="placeholder" ng-class="{'element-invisible':webUploader.placeHolder_elementInvisible}">
+                                    <div id="filePicker"></div>
+                                    <p>或将照片拖到这里，单次最多可选300张</p>
+                                </div>
+
+                                <ul class="filelist">
+
+                                    <li id="{{file.id}}" ng-repeat="file in product.ImgFiles">
+                                        <p class="title">{{file.title}}</p>
+                                        <p class="imgWrap">
+                                            <img ng-src="{{file.src}}">
+                                        <p class="error">{{webUploader.fileError}}</p>
+
+                                        <span ng-if="webUploader.previewText">{{webUploader.previewText}}</span>
+                                        </p>
+                                        <p class="progress">
+                                            <span></span>
+                                        </p>
+                                        <div class="file-panel" style="height: 0px;">
+                                            <span class="cancel">删除</span>
+                                            <span class="rotateRight">向右旋转</span>
+                                            <span class="rotateLeft">向左旋转</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="statusBar" ng-show="webUploader.statusBar_visible">
+                                <div class="progress">
+                                    <span class="text">0%</span>
+                                    <span class="percentage"></span>
+                                </div><div class="info"></div>
+                                <div class="btns">
+
+                                    <div id="filePicker2"></div>
+                                    <div class="uploadBtn" ng-class="{'state-pedding':webUploader.state=='pedding', 'state-ready':webUploader.state=='pedding',
+                                         'state-uploading':webUploader.state=='uploading','state-confirm':webUploader.state=='confirm', 'state-done':webUploader.state=='done'}">开始上传</div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+
+
+                            </div>
+                        </uib-tab>
+                        <!--图片信息 结束-->
+                    </uib-tabset>
+
+
+
+                </form>
+
+                 
+            </div>
+    
+        </div>
+
+    </div>
+
+
+</div>

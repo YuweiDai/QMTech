@@ -1,0 +1,46 @@
+<view class="page">
+    <view class="page__bd">
+        <view class="swiper">
+            <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
+                    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+                <block wx:for-items="{{background}}">
+                    <swiper-item>
+                        <view class="swiper-item" style="background-image:url({{item}})"></view>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+
+        <view class="menu__panel">
+            <view class="menueview">
+                <block>
+                    <image src="../../image/food.png" mode="center" class="menue-image" />
+                </block>
+                <block>
+                    <image src="../../image/food.png" mode="center" class="menue-image" />
+                </block>
+                <block>
+                    <image src="../../image/food.png" mode="center" class="menue-image" />
+                </block>
+                <block>
+                    <image src="../../image/food.png" mode="center" class="menue-image" />
+                </block>                                                                                                                                                                                                        
+            </view>      
+            <view class="menueview">
+                <block>
+                    <image src="../../image/food.png" mode="center" class="menue-image" />
+                </block>
+                <block>
+                    <image src="../../image/food.png" mode="center" class="menue-image" />
+                </block>
+                <block>
+                    <image src="../../image/food.png" mode="center" class="menue-image" />
+                </block>
+                <block>
+                    <image src="../../image/food.png" mode="center" class="menue-image" />
+                </block>                                                                                                                                                                                                        
+            </view>                   
+        </view>
+
+    </view>
+</view>

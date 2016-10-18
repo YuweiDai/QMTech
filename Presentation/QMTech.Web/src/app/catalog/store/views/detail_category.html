@@ -1,0 +1,79 @@
+﻿<div class="wrapper-md">
+    <div class="row" ng-controller="StoreProductCategoryCtrl">
+        <div class="col-md-12 m-b-md">
+            <button class="btn btn-primary" ng-click="addCategory()"> 新增类别</button>
+            <uib-alert ng-if="!processing&&productCategories.length==0" type="danger" class="m-t-md">暂无分类</uib-alert>
+
+            <div class="pull-right">
+                <span ng-if="operationSuccess" class="text-success">
+                    <i class="fa fa-check-circle"></i> 操作成功
+                </span>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <ul class="list-group gutter list-group-lg list-group-sp">
+                <!-- <li ng-if="processing" class="list-group-item"><span ><i class="fa fa-spinner fa-spin"></i> 加载中...</span></li>-->
+                <li class="list-group-item" ng-repeat="productCategory in productCategories" ng-class="{'bg-primary':productCategory.selected}" ng-click="selectCategory(productCategory)">
+                    <span class="pull-right">
+                        <a href="javascript:void(0)" ng-click="deleteCategory(productCategory,$index)"><i class="fa fa-times fa-fw"></i></a>
+                    </span>
+                    <span class="pull-left"><i class="fa fa-tag text-muted fa m-r-sm"></i> </span>
+                    <div class="clear">
+                        {{productCategory.name}}
+                        <span ng-if="!productCategory.published" class="text-danger">（未发布）</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <uib-alert ng-if="error" type="danger" close="clearError(0)">{{error}}</uib-alert>
+            <form ng-if="selectedCategory!=null" name="categoryForm" class="form-horizontal form-validation w5c-form" role="form" w5c-form-validate="validation.options" novalidate>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">名称</label>
+                    <div class="col-lg-10">
+                        <input type="text" name="cname" class="form-control" placeholder="输入类别名称" ng-model="selectedCategory.name" ng-minlength="2" ng-maxlength="20" ng-required="true"
+                               w5c-unique-check="{url:$root.apiUrl+'Admin/Catalog/Stores/'+storeId+'/ProductCategories/Unique/'+selectedCategory.name,value:selectedCategory.name ,defaultValue:nameDefaultValue}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">显示次序</label>
+                    <div class="col-lg-10">
+                        <input ui-jq="TouchSpin" type="text" value="1" class="form-control" data-min='0' data-verticalbuttons="true"
+                               data-verticalupclass="fa fa-caret-up" data-verticaldownclass="fa fa-caret-down" ng-model="selectedCategory.displayOrder">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <div class="checkbox">
+                            <label class="i-checks">
+                                <input type="checkbox" ng-model="selectedCategory.published"><i></i> 发布
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-2 control-label">备注</label>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" rows="6" placeholder="输入备注信息" ng-model="selectedCategory.description"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <button type="submit" class="btn btn-info btn-block" w5c-form-submit="saveCategory()" ng-disabled="!categoryForm.$valid || processing"><i class="fa fa-save"></i> 保存</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <!--对话框-->
+        <script type="text/ng-template" id="dialog.html">
+            <div ng-include="'app/views/blocks/dialog.html'"></div>
+        </script>
+    </div>
+</div>
+

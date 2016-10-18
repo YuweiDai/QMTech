@@ -1,0 +1,15 @@
+page {
+  background-color: #ededed;
+  height: 100%;
+  font:微软雅黑;
+}
+
+.text-center
+{
+    text-align:align:center;
+}
+
+.border__none
+{
+    border:none !important;
+}

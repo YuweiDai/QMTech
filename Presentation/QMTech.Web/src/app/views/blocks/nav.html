@@ -1,0 +1,92 @@
+﻿<!-- list -->
+<ul class="nav">
+  <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+    <span>导航</span>
+  </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.dashboard">
+            <i class="glyphicon glyphicon-stats icon text-primary-dker"></i>
+            <span class="font-bold">工作台</span>
+        </a>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.calendar">
+            <i class="glyphicon glyphicon-calendar icon text-info-dker"></i>
+            <span class="font-bold">日历</span>
+        </a>
+    </li>
+
+  <li class="line dk"></li>
+    <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+        <span>业务</span>
+    </li>
+
+    <li ng-class="{active:$state.includes('app.catalog')}">
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="glyphicon glyphicon-briefcase icon"></i>
+            <span>目录管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li class="nav-sub-header">
+                <a href>
+                    <span>目录管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.catalog.storecategory">
+                    <span>商家类别</span>
+                </a>
+            </li>
+            <li ng-class="{active:$state.includes('app.catalog.store')}">
+                <a ui-sref="app.catalog.store.list">
+                    <span>商家管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.catalog.tags">
+                    <span>标签管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.catalog.settings">
+                    <span>目录设置</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li ng-class="{active:$state.includes('app.personnel')}">
+        <a href class="auto">
+            <span class="pull-right text-muted">
+                <i class="fa fa-fw fa-angle-right text"></i>
+                <i class="fa fa-fw fa-angle-down text-active"></i>
+            </span>
+            <i class="fa fa-users icon"></i>
+            <span>人事</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li class="nav-sub-header">
+                <a href>
+                    <span>人事</span>
+                </a>
+            </li>
+            <li ng-class="{active:$state.includes('app.personnel.employee')}">
+               <!-- ui-sref-active="active"-->
+                <a ui-sref="app.personnel.employee.list">
+                    <span> 员工管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.personnel.departments">
+                    <b class="badge bg-info pull-right">3</b>
+                    <span>部门管理</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<!-- / list -->

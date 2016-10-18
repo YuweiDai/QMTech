@@ -1,0 +1,118 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{D9D9259F-02F4-44DF-B06C-4F55A3DF69B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMTech.Core", "Libraries\QMTech.Core\QMTech.Core.csproj", "{555E726A-BB83-4408-A4BF-A0F5D48F3A94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMTech.Data", "Libraries\QMTech.Data\QMTech.Data.csproj", "{6F90A652-1DFA-4600-BA74-F2BC81ABE4DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMTech.Services", "Libraries\QMTech.Services\QMTech.Services.csproj", "{8C2BE1BB-9F6D-4844-9F4E-B7164C56CECB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{0A0B76E6-18AD-472D-83A0-FC99A353B538}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMTech.Api", "Presentation\QMTech.Api\QMTech.Api.csproj", "{6287DF22-1BF4-44F9-8CA0-ED6A1714F14D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMTech.Web.Framework", "Presentation\QMTech.Web.Framework\QMTech.Web.Framework.csproj", "{616DFE20-94EF-4B2D-B94C-30B1B7FC1B3F}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "QMTech.Web", "Presentation\QMTech.Web\", "{845D3001-9948-45DB-A986-F22441A3767C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_5974"
+		Debug.AspNetCompiler.PhysicalPath = "Presentation\QMTech.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_5974\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_5974"
+		Release.AspNetCompiler.PhysicalPath = "Presentation\QMTech.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_5974\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "5974"
+		SlnRelativePath = "Presentation\QMTech.Web\"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{C3827EE5-3F70-46E2-A436-EE78C6C42B00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMTech.DataImport", "Others\QMTech.DataImport\QMTech.DataImport.csproj", "{CC2D5609-AE6A-4255-B0BE-0AC81A1F1130}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "QMTech.Wechatapp", "Presentation\QMTech.Wechatapp\", "{96D0A7A9-E8F2-486A-92A1-D2D6CE8DC94B}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_13393"
+		Debug.AspNetCompiler.PhysicalPath = "Presentation\QMTech.Wechatapp\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_13393\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_13393"
+		Release.AspNetCompiler.PhysicalPath = "Presentation\QMTech.Wechatapp\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_13393\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "13393"
+		SlnRelativePath = "Presentation\QMTech.Wechatapp\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{555E726A-BB83-4408-A4BF-A0F5D48F3A94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{555E726A-BB83-4408-A4BF-A0F5D48F3A94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{555E726A-BB83-4408-A4BF-A0F5D48F3A94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{555E726A-BB83-4408-A4BF-A0F5D48F3A94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F90A652-1DFA-4600-BA74-F2BC81ABE4DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F90A652-1DFA-4600-BA74-F2BC81ABE4DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F90A652-1DFA-4600-BA74-F2BC81ABE4DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F90A652-1DFA-4600-BA74-F2BC81ABE4DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C2BE1BB-9F6D-4844-9F4E-B7164C56CECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C2BE1BB-9F6D-4844-9F4E-B7164C56CECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C2BE1BB-9F6D-4844-9F4E-B7164C56CECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C2BE1BB-9F6D-4844-9F4E-B7164C56CECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6287DF22-1BF4-44F9-8CA0-ED6A1714F14D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6287DF22-1BF4-44F9-8CA0-ED6A1714F14D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6287DF22-1BF4-44F9-8CA0-ED6A1714F14D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6287DF22-1BF4-44F9-8CA0-ED6A1714F14D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{616DFE20-94EF-4B2D-B94C-30B1B7FC1B3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{616DFE20-94EF-4B2D-B94C-30B1B7FC1B3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{616DFE20-94EF-4B2D-B94C-30B1B7FC1B3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{616DFE20-94EF-4B2D-B94C-30B1B7FC1B3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{845D3001-9948-45DB-A986-F22441A3767C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{845D3001-9948-45DB-A986-F22441A3767C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{845D3001-9948-45DB-A986-F22441A3767C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{845D3001-9948-45DB-A986-F22441A3767C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{CC2D5609-AE6A-4255-B0BE-0AC81A1F1130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC2D5609-AE6A-4255-B0BE-0AC81A1F1130}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC2D5609-AE6A-4255-B0BE-0AC81A1F1130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC2D5609-AE6A-4255-B0BE-0AC81A1F1130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D0A7A9-E8F2-486A-92A1-D2D6CE8DC94B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D0A7A9-E8F2-486A-92A1-D2D6CE8DC94B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D0A7A9-E8F2-486A-92A1-D2D6CE8DC94B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D0A7A9-E8F2-486A-92A1-D2D6CE8DC94B}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{555E726A-BB83-4408-A4BF-A0F5D48F3A94} = {D9D9259F-02F4-44DF-B06C-4F55A3DF69B1}
+		{6F90A652-1DFA-4600-BA74-F2BC81ABE4DB} = {D9D9259F-02F4-44DF-B06C-4F55A3DF69B1}
+		{8C2BE1BB-9F6D-4844-9F4E-B7164C56CECB} = {D9D9259F-02F4-44DF-B06C-4F55A3DF69B1}
+		{6287DF22-1BF4-44F9-8CA0-ED6A1714F14D} = {0A0B76E6-18AD-472D-83A0-FC99A353B538}
+		{616DFE20-94EF-4B2D-B94C-30B1B7FC1B3F} = {0A0B76E6-18AD-472D-83A0-FC99A353B538}
+		{845D3001-9948-45DB-A986-F22441A3767C} = {0A0B76E6-18AD-472D-83A0-FC99A353B538}
+		{CC2D5609-AE6A-4255-B0BE-0AC81A1F1130} = {C3827EE5-3F70-46E2-A436-EE78C6C42B00}
+		{96D0A7A9-E8F2-486A-92A1-D2D6CE8DC94B} = {0A0B76E6-18AD-472D-83A0-FC99A353B538}
+	EndGlobalSection
+EndGlobal

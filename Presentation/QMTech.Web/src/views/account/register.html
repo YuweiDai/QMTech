@@ -1,0 +1,45 @@
+﻿<div class="container" ng-controller="RegisterController" ng-init="app.settings.container = false;">
+    <div class="m-b-lg">
+         
+        <div class="row">
+
+            <div class="col-lg-12">
+
+                <ul class="tabs">
+                    <li><span>1</span>填写注册信息</li>
+                    <li><span>2</span>注册成功</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+            <form name="form" class="form-validation" autocomplete="off">
+                <div class="text-danger wrapper text-center" ng-show="authError">
+                    {{authError}}
+                </div>
+                <div class="list-group list-group-sm">
+                    <!--<div class="list-group-item">
+                <input placeholder="Name" class="form-control no-border" ng-model="user.name" required>
+            </div>-->
+                    <div class="list-group-item">
+                        <input type="tel" placeholder="手机号码" autocomplete="off" class="form-control no-border" ng-model="user.mobile" required>
+                    </div>
+                    <div class="list-group-item">
+                        <input type="password" placeholder="Password" autocomplete="off" class="form-control no-border" ng-model="user.password" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="register()" ng-disabled='form.$invalid'>同意条款并注册</button>
+                <div class="m-t"><a class="text-primary " href="http://wwww.baidu.com">《使用条款和协议》</a></div>
+                <div class="line line-dashed"></div>
+                <p class="text-center"><small>已经拥有一个帐号？</small></p>
+                <a ui-sref="account.login" class="btn btn-lg btn-default btn-block">登录</a>
+            </form>
+        </div>
+
+ 
+        
+        
+    </div>
+</div>
