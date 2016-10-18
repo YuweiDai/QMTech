@@ -20,7 +20,8 @@
 .top_line_container
 {
 	display: flex;
-	border: #ddd solid 1px;
+	border-top: #ddd solid 1px;
+	border-bottom: #ddd solid 1px;
 	background:white;
 	height:30px;
 	width:100%;
@@ -44,6 +45,7 @@
 
 .top_line_swiper text
 {
-	height:30px;
+	line-height:30px;
 	font-size:16px;
+	overflow:hidden;
 }

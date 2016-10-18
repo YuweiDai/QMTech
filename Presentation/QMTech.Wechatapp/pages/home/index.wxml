@@ -1,8 +1,7 @@
 <view class="page">
     <view class="page__bd">
         <view class="swiper">
-            <swiper indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
-                    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+            <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
                 <block wx:for-items="{{background}}">
                     <swiper-item>
                         <view class="swiper-item" style="background-image:url({{item}})"></view>
@@ -42,27 +41,31 @@
             </view>                   
         </view>
       
-        <view class="top_line_container" style="">
+        <view class="top_line_container">
           <image class="top_line_img" src="../../image/111.png"/>
           <view class="top_line_swipers">
-              <swiper indicator-dots="{{top_line_indicatorDots}}" vertical="true" autoplay="false" interval="{{interval}}" duration="{{duration}}">
-                  <block>
+              <swiper vertical="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+                  <block wx:for-items="{{top_lines}}">
                       <swiper-item class="top_line_swiper">
-                          <text>儿童身高, 体重发育标准! 快来看看0...</text>
+                          <text>{{item}}</text>
                       </swiper-item>
-                  </block>
-                  <block>
-                      <swiper-item class="top_line_swiper">
-                          <text>儿童身高, 体重发育标准! 快来看看1 ...</text>
-                      </swiper-item>
-                  </block>
-                  <block>
-                      <swiper-item class="top_line_swiper">
-                          <text>儿童身高, 体重发育标准! 快来看看2 ...</text>
-                      </swiper-item>
-                  </block>        
+                  </block>                
               </swiper>                
           </view>
         </view>
+
+      <view class="bg-white">
+        <text>附近商户</text>        
+      </view>
+
+      <view class="panel bg-white">
+        <view wx:for-items="{{shops}}">
+          
+        </view>
+      </view>
+
+      <view>
+        
+      </view>
     </view>
 </view>
