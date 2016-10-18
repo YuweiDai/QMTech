@@ -7,7 +7,9 @@ Page({
         vertical: false,
         autoplay: false,
         interval: 3000,
-        duration: 1200
+        duration: 1200,
+
+        top_line_indicatorDots:false
     },
     changeIndicatorDots: function (e) {
         this.setData({

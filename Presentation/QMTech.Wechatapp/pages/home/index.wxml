@@ -41,6 +41,28 @@
                 </block>                                                                                                                                                                                                        
             </view>                   
         </view>
-
+      
+        <view class="top_line_container" style="">
+          <image class="top_line_img" src="../../image/111.png"/>
+          <view class="top_line_swipers">
+              <swiper indicator-dots="{{top_line_indicatorDots}}" vertical="true" autoplay="false" interval="{{interval}}" duration="{{duration}}">
+                  <block>
+                      <swiper-item class="top_line_swiper">
+                          <text>儿童身高, 体重发育标准! 快来看看0...</text>
+                      </swiper-item>
+                  </block>
+                  <block>
+                      <swiper-item class="top_line_swiper">
+                          <text>儿童身高, 体重发育标准! 快来看看1 ...</text>
+                      </swiper-item>
+                  </block>
+                  <block>
+                      <swiper-item class="top_line_swiper">
+                          <text>儿童身高, 体重发育标准! 快来看看2 ...</text>
+                      </swiper-item>
+                  </block>        
+              </swiper>                
+          </view>
+        </view>
     </view>
 </view>

@@ -6,10 +6,6 @@
     background-position: top;
 }
 
-.menu__panel
-{
-  border-bottom:solid 1px silver;
-}
 .menueview{
   display:flex;
   background-color:#FFF;
@@ -19,4 +15,35 @@
   flex:1;
   height:70px;
   height:auto
+}
+
+.top_line_container
+{
+	display: flex;
+	border: #ddd solid 1px;
+	background:white;
+	height:30px;
+	width:100%;
+	overflow:hidden
+	padding:5px 10px;	
+}
+
+.top_line_img{
+    width: 80px;
+    height: 30px;
+}
+.top_line_swipers {
+	width:100%;
+	height:30px;
+}
+
+.top_line_swipers swiper{
+	width:100%;
+	height:100%;
+}
+
+.top_line_swiper text
+{
+	height:30px;
+	font-size:16px;
 }
