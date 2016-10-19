@@ -9,12 +9,12 @@
 .menueview{
   display:flex;
   background-color:#FFF;
-  padding:5px 0
+  padding:5px 0;
 }
 .menue-image{
   flex:1;
   height:70px;
-  height:auto
+  height:auto;
 }
 
 .top_line_container
@@ -48,4 +48,39 @@
 	line-height:30px;
 	font-size:16px;
 	overflow:hidden;
+}
+
+.activity
+{
+	display:flex;
+	height:200px;
+	overflow:hidden;
+}
+
+.activity .left
+{
+width:33.3%;height:200px;
+}
+
+.activity .right
+{
+width:66.7%;height:200px;
+}
+
+.activity .right .top,
+.activity .right .bottom
+{
+    display: flex;
+	height:99.5px;
+}
+
+.activity__item
+{
+width:50%;height:100%;flex: auto;
+}
+
+.activity__img
+{
+	height:100%;
+	width:100%;
 }

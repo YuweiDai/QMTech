@@ -54,13 +54,25 @@
           </view>
         </view>
 
-      <view class="bg-white">
-        <text>附近商户</text>        
+      <view class="activity bg-white b-t b-b m-t-xs">
+        <view class="left b-r">
+          <image class="activity__img" mode="scaleToFill" src="http://b2.hucdn.com//upload/hmp/1609/29/54731005601173_326x410.jpg!320q50.webp"></image>
+        </view>        
+        <view class="right">
+          <view class="top b-b">
+            <view class="activity__item b-r"><image class="activity__img" mode="scaleToFill" src="http://b2.hucdn.com//upload/hmp/1607/15/48459914315915_212x204.jpg!200q50.webp"></image></view>
+            <view class="activity__item"><image class="activity__img" mode="scaleToFill" src="http://b2.hucdn.com//upload/hmp/1609/22/11023966677968_212x204.jpg!200q50.webp"></image></view>          
+          </view>
+          <view class="bottom">
+            <view class="activity__item b-r"><image class="activity__img" mode="scaleToFill" src="http://b2.hucdn.com//upload/hmp/1609/28/67263117394059_212x204.jpg!200q50.webp"></image></view>
+            <view class="activity__item"><image class="activity__img" mode="scaleToFill" src="http://b2.hucdn.com//upload/hmp/1609/28/63148107355039_212x204.jpg!200q50.webp"></image></view>                
+          </view>        
+        </view>              
       </view>
-
+           
       <view class="panel bg-white">
         <view wx:for-items="{{shops}}">
-          
+          123
         </view>
       </view>
 

@@ -17,7 +17,7 @@
                 sales: 55,
                 pic: ""
             }
-        ]
+        ],
     },
     changeIndicatorDots: function (e) {
         this.setData({
