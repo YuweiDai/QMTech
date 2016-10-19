@@ -9,50 +9,51 @@
                 </block>
             </swiper>
         </view>
-
-        <view class="menu__panel">
-            <view class="menueview">
-                <block>
-                    <image src="../../image/food.png" mode="center" class="menue-image" />
-                </block>
-                <block>
-                    <image src="../../image/food.png" mode="center" class="menue-image" />
-                </block>
-                <block>
-                    <image src="../../image/food.png" mode="center" class="menue-image" />
-                </block>
-                <block>
-                    <image src="../../image/food.png" mode="center" class="menue-image" />
-                </block>                                                                                                                                                                                                        
-            </view>      
-            <view class="menueview">
-                <block>
-                    <image src="../../image/food.png" mode="center" class="menue-image" />
-                </block>
-                <block>
-                    <image src="../../image/food.png" mode="center" class="menue-image" />
-                </block>
-                <block>
-                    <image src="../../image/food.png" mode="center" class="menue-image" />
-                </block>
-                <block>
-                    <image src="../../image/food.png" mode="center" class="menue-image" />
-                </block>                                                                                                                                                                                                        
-            </view>                   
-        </view>
+    </view>
+  
+    <view class="menu__panel">
+        <view class="menueview">
+            <block>
+                <image src="../../image/food.png" mode="center" class="menue-image" />
+            </block>
+            <block>
+                <image src="../../image/food.png" mode="center" class="menue-image" />
+            </block>
+            <block>
+                <image src="../../image/food.png" mode="center" class="menue-image" />
+            </block>
+            <block>
+                <image src="../../image/food.png" mode="center" class="menue-image" />
+            </block>                                                                                                                                                                                                        
+        </view>      
+        <view class="menueview">
+            <block>
+                <image src="../../image/food.png" mode="center" class="menue-image" />
+            </block>
+            <block>
+                <image src="../../image/food.png" mode="center" class="menue-image" />
+            </block>
+            <block>
+                <image src="../../image/food.png" mode="center" class="menue-image" />
+            </block>
+            <block>
+                <image src="../../image/food.png" mode="center" class="menue-image" />
+            </block>                                                                                                                                                                                                        
+        </view>                   
+    </view>
       
-        <view class="top_line_container">
-          <image class="top_line_img" src="../../image/111.png"/>
-          <view class="top_line_swipers">
-              <swiper vertical="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-                  <block wx:for-items="{{top_lines}}">
-                      <swiper-item class="top_line_swiper">
-                          <text>{{item}}</text>
-                      </swiper-item>
-                  </block>                
-              </swiper>                
-          </view>
-        </view>
+    <view class="top_line_container">
+      <image class="top_line_img" src="../../image/111.png"/>
+      <view class="top_line_swipers">
+          <swiper vertical="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+              <block wx:for-items="{{top_lines}}">
+                  <swiper-item class="top_line_swiper">
+                      <text>{{item}}</text>
+                  </swiper-item>
+              </block>                
+          </swiper>                
+      </view>
+    </view>
 
       <view class="activity bg-white b-t b-b m-t-xs">
         <view class="left b-r">
@@ -70,14 +71,44 @@
         </view>              
       </view>
            
-      <view class="panel bg-white">
-        <view wx:for-items="{{shops}}">
-          123
+      <view class="bg-white">
+        <view class="nice_shops_products b-b">
+          <text class="menu text-center {{selectedMenu =='附近商户'? 'active' : ''}}" bindtap="selectShops">附近商户</text>
+          <text class="menu text-center {{selectedMenu =='大家都在吃'? 'active' : ''}}" bindtap="selectProducts">大家都在吃</text>
         </view>
+        <view class="shops" wx:if="{{selectedMenu =='附近商户'}}">
+          <view class="nice_item b-b wrapper-sm" wx:for-items="{{shops}}">
+            <view class="nice_item_img wrapper-xs">
+              <image src="{{item.pic}}"  mode=""/>
+            </view>
+            <view class="nice_item_info">
+              <view class="nice_item_info_title m-xs">{{item.name}}</view>
+              <view class="nice_item_info_item m-xs">
+                <text>月售：{{item.sales}} 份</text>
+                <text class="right text-right text-danger">{{item.timeCost}} 分钟</text>
+              </view>
+              <view class="nice_item_info_item m-xs">
+                <text>评分：{{item.star}} | 运费：{{item.deliverFee}}</text>
+                <text class="right text-right ">{{item.dist}} km</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="products" wx:if="{{selectedMenu =='大家都在吃'}}">
+          <view class="nice_item b-b wrapper-sm" wx:for-items="{{products}}">
+            <view class="nice_item_img wrapper-xs">
+              <image src="{{item.pic}}"  mode=""/>
+            </view>
+            <view class="nice_item_info">
+              <view class="nice_item_info_title m-xs">{{item.name}}</view>
+              <view class="nice_item_info_item m-xs">
+                <text>月售：{{item.sales}} 份 | 好评率 {{item.good}} %</text>
+              </view>
+              <view class="nice_item_info_item m-xs">
+                <text class="text-danger">￥：{{item.price}}</text>
+              </view>
+            </view>
+          </view>
+        </view>        
       </view>
-
-      <view>
-        
-      </view>
-    </view>
 </view>

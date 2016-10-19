@@ -10,38 +10,86 @@
         duration: 1200,
          
         top_lines: ['儿童身高, 体重发育标准! 快来看看0...', '儿童身高, 体重发育标准! 快来看看1...', ],
+
+        selectedMenu: "附近商户",
         shops: [
             {
                 name: "测试商家一",
                 star: 5,
                 sales: 55,
-                pic: ""
+                pic: "http://www.atool.org/placeholder.png?size=300x150&bg=9BCE3B&fg=fff",
+                deliverFee: 10,
+                timeCost: 40,
+                dist: 2.0,
+                open: true
+            },
+            {
+                name: "测试商家二",
+                star: 5,
+                sales: 55,
+                pic: "http://www.atool.org/placeholder.png?size=300x150&bg=9BCE3B&fg=fff",
+                deliverFee: 10,
+                timeCost: 40,
+                dist: 2.0,
+                open: true
+            },
+            {
+                name: "测试商家二",
+                star: 5,
+                sales: 55,
+                pic: "http://www.atool.org/placeholder.png?size=300x150&bg=9BCE3B&fg=fff",
+                deliverFee: 10,
+                timeCost: 40,
+                dist: 2.0,
+                open: true
             }
         ],
+
+        products: [
+            {
+                id: 0,
+                name: "商品1",
+                pic: "http://www.atool.org/placeholder.png?size=300x150&bg=9BCE3B&fg=fff",
+                price: 2,
+                good: 88,
+                sales:100,
+            },
+            {
+                id: 0,
+                name: "商品2",
+                pic: "http://www.atool.org/placeholder.png?size=300x150&bg=9BCE3B&fg=fff",
+                price: 2,
+                good: 88,
+                sales: 100,
+            },
+            {
+                id: 0,
+                name: "商品3",
+                pic: "http://www.atool.org/placeholder.png?size=300x150&bg=9BCE3B&fg=fff",
+                price: 2,
+                good: 88,
+                sales: 100,
+            },
+            {
+                id: 0,
+                name: "商品4",
+                pic: "http://www.atool.org/placeholder.png?size=300x150&bg=9BCE3B&fg=fff",
+                price: 2,
+                good: 88,
+                sales: 100,
+            }
+
+        ]
     },
-    changeIndicatorDots: function (e) {
+    selectShops: function (e) {       
         this.setData({
-            indicatorDots: !this.data.indicatorDots
+            selectedMenu: "附近商户"
         })
     },
-    changeVertical: function (e) {
+    selectProducts: function (e) {
         this.setData({
-            vertical: !this.data.vertical
+            selectedMenu: "大家都在吃"
         })
     },
-    changeAutoplay: function (e) {
-        this.setData({
-            autoplay: !this.data.autoplay
-        })
-    },
-    intervalChange: function (e) {
-        this.setData({
-            interval: e.detail.value
-        })
-    },
-    durationChange: function (e) {
-        this.setData({
-            duration: e.detail.value
-        })
-    }
+
 })

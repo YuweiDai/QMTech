@@ -1,12 +1,30 @@
 page {
   background-color: #ededed;
   height: 100%;
-  font:微软雅黑;
+  font-family:微软雅黑;
 }
 
 .text-center
 {
     text-align:center;
+}
+.text-left
+{
+    text-align:left;
+}
+.text-right
+{
+    text-align:right;
+}
+
+.left
+{
+	float:left;
+}
+
+.right
+{
+	float:right;
 }
 
 .border__none
