@@ -72,7 +72,7 @@
       </view>
            
       <view class="bg-white">
-        <view class="nice_shops_products b-b">
+        <view class="flex nice_shops_products b-b">
           <text class="menu text-center {{selectedMenu =='附近商户'? 'active' : ''}}" bindtap="selectShops">附近商户</text>
           <text class="menu text-center {{selectedMenu =='大家都在吃'? 'active' : ''}}" bindtap="selectProducts">大家都在吃</text>
         </view>

@@ -6,7 +6,7 @@
         </view>       
     </view>
     <view class="page__bd">
-            <view class="flex-wrp" style="flex-direction:row;">
+            <view class="flex" style="flex-direction:row;">
                 <view class="flex-item">
                 我的钱包
                 </view>

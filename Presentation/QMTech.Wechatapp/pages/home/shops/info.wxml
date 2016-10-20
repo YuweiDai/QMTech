@@ -1,5 +1,5 @@
 <view class="page">
-  <view bindtap="bindViewTap"  class="title_panel wrapper-xs page__bd">
+  <view bindtap="bindViewTap"  class="title_panel wrapper-xs page__hd">
     <image class="avatar" src="http://atool.org/placeholder.png" background-size="cover"></image>
     <view class="infoList">
       <view class="title">
@@ -14,17 +14,125 @@
       </view>
     </view>
   </view>
-  <view class="flex b-b">
-    <view class="menu text-center">
-      <text class="wrapper-sm active">点菜</text>
+  
+  <view class="menu_panel flex b-b bg-white">      
+    <blcok class="menu text-center" wx:for="{{navMenus}}" >
+      <text class=" {{curNavMenu==item.id?'active':''}}" bindtap="selectNavMenu" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</text>
+    </blcok>
+  </view>
+  
+  <view class="page_bd">
+
+    <!-- 点菜 -->
+    <view class="dish_container flex flex-direction-row" hidden="{{curNavMenuIndex!=0}}">
+      <!-- left aside -->
+      <view class="aside flex flex-direction-col">
+        <block wx:for="{{navList}}">
+          <text class="type-nav {{curNav == item.id ? 'selected' : ''}}" bindtap="selectNav" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</text>
+        </block>
+      </view>
+
+      <!-- content -->
+      <view class="content flex-item">
+        <block wx:for="{{dishesList[curIndex]}}">
+          <view class="dish flex flex-direction-row" catchtap="selectDish" data-dish="{{item.id}}">
+            <view class="flex-item">
+              <text class="title">{{item.name}}</text>
+              <p>￥{{item.price}}</p>
+            </view>
+            <view class="add-btn">
+              <icon type="{{item.status ? 'success' : 'circle'}}" color="orange" size="30"></icon>
+            </view>
+          </view>
+        </block>
+
+      </view>
+
     </view>
-    <view class="menu text-center">
-      <text class="wrapper-sm">评价</text>
+    
+    <!--评论-->
+    <view class="comment_container text-center" hidden="{{curNavMenuIndex!=1}}">
+      <view class="m-t-sm m-b-sm flex bg-white ">
+        <view class="flex-item  m-t-sm m-b-sm b-r">
+          <view class="full_rate">4.7</view>
+          <view class="full_rate_txt">综合评分</view>
+          <view class="good_comment_rate m-t-xs">商家好评率87%</view>          
+        </view>
+        <view class="flex-item2">
+          <view class="rate_item m-t-sm">配送评分 4.8</view>
+          <view class="rate_item m-t-md">商家评分 4.6</view>
+        </view>
+      </view>
+      
+      <view class="m-t-sm bg-white">
+
+        <view class="text-left wrapper-sm">
+          <label class="checkbox">
+            <checkbox value="12" checked="true"/>只看有内容的评论
+          </label>
+        </view>
+        
+        <view class="comment-item b-t">
+          <image class="avatar" src="http://atool.org/placeholder.png" background-size="cover"></image>
+          <view class="info wrapper-xs">
+            <view class="name text-left">
+              低调金<text class="right date">2016.10.20</text>
+            </view>
+            <view class="rate text-left m-b-xs">
+              36分钟送达
+            </view>
+            <view class="content text-left m-b-xs">吃完才想到拍照，第二次来了，还是上次鱿鱼QQ面好吃。</view>
+            <view class="images m-b-xs"></view>
+            <view class="tags"></view>
+          </view>
+        </view>
+
+        <view class="comment-item b-t">
+          <image class="avatar" src="http://atool.org/placeholder.png" background-size="cover"></image>
+          <view class="info wrapper-xs">
+            <view class="name text-left">
+              低调金<text class="right date">2016.10.20</text>
+            </view>
+            <view class="rate text-left m-b-xs">
+              36分钟送达
+            </view>
+            <view class="content text-left m-b-xs">吃完才想到拍照，第二次来了，还是上次鱿鱼QQ面好吃。</view>
+            <view class="images m-b-xs"></view>
+            <view class="tags"></view>
+          </view>
+        </view>
+
+        <view class="comment-item b-t">
+          <image class="avatar" src="http://atool.org/placeholder.png" background-size="cover"></image>
+          <view class="info wrapper-xs">
+            <view class="name text-left">
+              低调金<text class="right date">2016.10.20</text>
+            </view>
+            <view class="rate text-left m-b-xs">
+              36分钟送达
+            </view>
+            <view class="content text-left m-b-xs">吃完才想到拍照，第二次来了，还是上次鱿鱼QQ面好吃。</view>
+            <view class="images m-b-xs"></view>
+            <view class="tags"></view>
+          </view>
+        </view>
+      </view>
     </view>
-    <view class="menu text-center">
-      <text class="wrapper-sm">商家</text>
-    </view>
+    
+    <!--商家-->
+    <view class="navbd_container" hidden="{{curNavMenuIndex!=2}}"></view>
+    
   </view>
 
-  <view class="shopping_cart"></view>
+  <view class="shopping_cart flex">
+    <view class="cart_img text-center">
+      <image src="../../../image/icon_shopping_cart.png"></image>
+    </view>
+    <view class="cart_tip">
+      <text>购物车是空的</text>
+    </view>
+    <view class="cart_button">
+      <text></text>
+    </view>   
+  </view>
 </view>

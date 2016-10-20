@@ -31,6 +31,18 @@ page {
 {
 	display:flex;
 }
+.flex-item{
+	flex: 1;
+}
+.flex-item2{
+	flex: 2;
+}
+.flex.flex-direction-col{
+	flex-direction: column;
+}
+.flex.flex-direction-row{
+	flex-direction: row;
+}
 
 .border__none
 {

@@ -87,7 +87,6 @@ width:50%;height:100%;flex: auto;
 
 .nice_shops_products
 {
-	display:flex;
 	height:40px;
 }
 

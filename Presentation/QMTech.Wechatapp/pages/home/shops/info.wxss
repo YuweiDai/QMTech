@@ -1,7 +1,7 @@
-.page__bd
+.page__hd
 {
 	background:#33475f;
-	height:70px;
+	height:168rpx;
 }
 
 .title_panel
@@ -14,13 +14,13 @@
 {
 	position:absolute;
 	left:0;
+	top:16rpx;
 }
 
 .infoList
 {
 	margin-left:170rpx;
-	margin-top:10px;
-	height:60px;
+	margin-top:20rpx;
 }
 
 .notice
@@ -43,21 +43,155 @@
 	margin-right:10px;
 }
 
+.menu_panel
+{
+	height:40px;
+}
+
 .menu
 {
 	flex:1;
+	font-size:16px;
 	height:40px;
 	line-height:40px;
-	color:black;
-	background:white;
 }
 
 .menu text
 {
-	padding-bottom:7px;
+	width:100%;
+	height:37px;
+	display:block;
 }
 
-.menu text.active
+.menu .active
 {
-	border-bottom:solid 3px yellow;
+	color:#7266ba;
+	font-weight:bold;
+	border-bottom: #8278c2 4px solid;
+}
+
+
+
+.dish_container,comment_container {
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+}
+
+.aside{
+	width:4rem;
+	border-right: 1px solid #ddd;
+	font-size: .85rem;
+}
+.type-nav{
+	position: relative;
+	padding:.7rem .3rem;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+	z-index: 10;
+}
+.type-nav.selected{
+	margin-right: -1px;
+	padding-left::-1px;
+	color: #333;
+	background-color: #fff;
+}
+.content{
+	background-color: #fff;
+}
+
+.dish{
+	margin-left: 1rem;
+	padding: 1rem;
+	border-bottom: 1px solid #ddd;
+}
+.dish .title{
+	display: block;
+	font-size: 1rem;
+}
+.dish p{
+	color: orange;
+	font-size: .75rem;
+}
+.dish .add-btn{
+	width: 3rem;
+	text-align: right;
+}
+
+.comment_container
+{
+	font-size:14px;
+}
+.full_rate
+{
+	font-size:24px;
+	color:orange;
+}
+
+.good_comment_rate
+{
+	font-size:12px;
+	color:silver;
+}
+
+.rate_item
+{
+	font-size:16px;
+}
+
+.comment-item
+{
+	position:relative;
+		font-size:12px;
+		color:silver;
+}
+.comment-item .avatar
+{
+	width:100rpx;
+	height:100rpx;
+}
+
+.comment-item .info
+{
+	margin-left:150rpx;
+	margin-top:20rpx;
+}
+
+.comment-item .info .name
+{
+	font-size:20px;
+	color:black;
+}
+
+.comment-item .info .name .date
+{
+		font-size:12px;
+		color:silver;
+}
+.shopping_cart
+{
+	position:fixed;
+	bottom:0;
+	height:50px;
+	width:100%;
+	background-color:black;
+	color:white;
+	line-height:50px;
+}
+
+.cart_img
+{
+	flex:1;	
+}
+
+.cart_img image
+{
+	width:32px;
+	height:32px;
+	margin-top:9px;
+}
+
+.cart_tip, .cart_button
+{
+	flex:2;
 }
