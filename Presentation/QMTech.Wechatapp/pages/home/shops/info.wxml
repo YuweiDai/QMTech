@@ -1,0 +1,30 @@
+<view class="page">
+  <view bindtap="bindViewTap"  class="title_panel wrapper-xs page__bd">
+    <image class="avatar" src="http://atool.org/placeholder.png" background-size="cover"></image>
+    <view class="infoList">
+      <view class="title">
+        <text>{{shop.name}}</text>
+      </view>
+      <view class="notice">
+        <text>公告：{{shop.noticement}}</text>
+      </view>
+      <view class="btns">
+        <image src="../../../image/icon_search.png" class="btn"></image>
+        <image src="../../../image/icon_store.png" class="btn"></image>
+      </view>
+    </view>
+  </view>
+  <view class="flex b-b">
+    <view class="menu text-center">
+      <text class="wrapper-sm active">点菜</text>
+    </view>
+    <view class="menu text-center">
+      <text class="wrapper-sm">评价</text>
+    </view>
+    <view class="menu text-center">
+      <text class="wrapper-sm">商家</text>
+    </view>
+  </view>
+
+  <view class="shopping_cart"></view>
+</view>

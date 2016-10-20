@@ -1,0 +1,63 @@
+.page__bd
+{
+	background:#33475f;
+	height:70px;
+}
+
+.title_panel
+{
+	position:relative;
+	color:white;
+}
+
+.avatar
+{
+	position:absolute;
+	left:0;
+}
+
+.infoList
+{
+	margin-left:170rpx;
+	margin-top:10px;
+	height:60px;
+}
+
+.notice
+{
+	font-size:12px;
+	margin-top:10px;
+}
+
+.btns
+{
+	position:absolute;
+	right:0;
+	top:0;
+}
+
+.btn
+{
+	width:20px;
+	height:20px;
+	margin-right:10px;
+}
+
+.menu
+{
+	flex:1;
+	height:40px;
+	line-height:40px;
+	color:black;
+	background:white;
+}
+
+.menu text
+{
+	padding-bottom:7px;
+}
+
+.menu text.active
+{
+	border-bottom:solid 3px yellow;
+}

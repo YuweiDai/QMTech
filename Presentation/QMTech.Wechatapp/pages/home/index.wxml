@@ -77,7 +77,7 @@
           <text class="menu text-center {{selectedMenu =='大家都在吃'? 'active' : ''}}" bindtap="selectProducts">大家都在吃</text>
         </view>
         <view class="shops" wx:if="{{selectedMenu =='附近商户'}}">
-          <view class="nice_item b-b wrapper-sm" wx:for-items="{{shops}}">
+          <view id="{{item.id}}" class="nice_item b-b wrapper-sm" wx:for-items="{{shops}}" bindtap="naveToStore">
             <view class="nice_item_img wrapper-xs">
               <image src="{{item.pic}}"  mode=""/>
             </view>

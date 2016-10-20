@@ -27,6 +27,11 @@ page {
 	float:right;
 }
 
+.flex
+{
+	display:flex;
+}
+
 .border__none
 {
     border:none !important;
@@ -36,6 +41,14 @@ page {
   background-color: #fff;
   color: #58666e;
 }
+
+.avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
 .bg-white .text-muted {
   color: #98a6ad !important;
 }

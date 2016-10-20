@@ -1,9 +1,10 @@
 {
   "pages": [
-      "pages/home/index"   ,
-"pages/mine/index",
+    "pages/home/index",
+     "pages/home/shops/info",
+     "pages/mine/index",
 
-            "pages/component/component-pages/view/view",
+
       "pages/component/component-pages/swiper/swiper",
       "pages/component/component-pages/slide-tab/slide-tab"
   ],

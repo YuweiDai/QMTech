@@ -10,10 +10,10 @@
         duration: 1200,
          
         top_lines: ['儿童身高, 体重发育标准! 快来看看0...', '儿童身高, 体重发育标准! 快来看看1...', ],
-
         selectedMenu: "附近商户",
         shops: [
             {
+                id:1,
                 name: "测试商家一",
                 star: 5,
                 sales: 55,
@@ -24,6 +24,7 @@
                 open: true
             },
             {
+                id:2,
                 name: "测试商家二",
                 star: 5,
                 sales: 55,
@@ -34,6 +35,7 @@
                 open: true
             },
             {
+                id:3,
                 name: "测试商家二",
                 star: 5,
                 sales: 55,
@@ -81,7 +83,7 @@
 
         ]
     },
-    selectShops: function (e) {       
+    selectShops: function (e) {
         this.setData({
             selectedMenu: "附近商户"
         })
@@ -91,5 +93,9 @@
             selectedMenu: "大家都在吃"
         })
     },
+
+    naveToStore: function (e) {
+        wx.navigateTo({ url: 'shops/info?id=' + e.currentTarget.id });
+    }
 
 })
