@@ -15,7 +15,7 @@
     </view>
   </view>
   
-  <view class="menu_panel flex b-b bg-white">      
+  <view class="menu_panel flex b-b section">      
     <blcok class="menu text-center" wx:for="{{navMenus}}" >
       <text class=" {{curNavMenu==item.id?'active':''}}" bindtap="selectNavMenu" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</text>
     </blcok>
@@ -52,7 +52,7 @@
     
     <!--评论-->
     <view class="comment_container text-center" hidden="{{curNavMenuIndex!=1}}">
-      <view class="m-t-sm m-b-sm flex bg-white ">
+      <view class="m-t-sm m-b-sm flex section ">
         <view class="flex-item  m-t-sm m-b-sm b-r">
           <view class="full_rate">4.7</view>
           <view class="full_rate_txt">综合评分</view>
@@ -64,7 +64,7 @@
         </view>
       </view>
       
-      <view class="m-t-sm bg-white">
+      <view class="m-t-sm section">
 
         <view class="text-left wrapper-sm">
           <label class="checkbox">
@@ -120,11 +120,53 @@
     </view>
     
     <!--商家-->
-    <view class="navbd_container" hidden="{{curNavMenuIndex!=2}}"></view>
+    <view class="owner_container" hidden="{{curNavMenuIndex!=2}}">
+      <view class="noticement m-t-sm section wrapper-md">
+        <view class="title text-center m-b-md">商家公告</view>
+        <view class="content text-muted">欢迎光临肯德基宅急送，专业外送，全程保温，准时送达！</view>
+      </view>
+      
+      <view class="m-t-sm section">
+        <view class="list-item b-b">
+          <image class="icon-l" src="../../../image/icon_tel.png"></image>
+          <text>13587126212</text>
+          <image class="icon-r" src="../../../image/arrowright.png"></image>
+        </view>
+        <view class="list-item">
+          <image class="icon-l" src="../../../image/icon_location.png"></image>
+          <text>衢州市荷花中路468号</text>
+          <image class="icon-r" src="../../../image/arrowright.png"></image>          
+        </view>
+      </view>
+
+      <view class="m-t-sm section">
+        <view class="list-item b-b">
+          <image class="icon-l" src="../../../image/icon_time.png"></image>
+          <text>配送时间：00:00-05:30,17:00-23:59</text>
+          <image class="icon-r" src="../../../image/arrowright.png"></image>
+        </view>
+        <view class="list-item">
+          <image class="icon-l" src="../../../image/icon_serve.png"></image>
+          <text>配送服务：由肯德基提供外送服务</text>
+          <image class="icon-r" src="../../../image/arrowright.png"></image>
+        </view>
+      </view>
+
+      <view class="m-t-sm section">
+        <view class="list-item b-b">
+          <image class="icon-l" src="../../../image/icon_time.png"></image>
+          <text>新用户立减15元</text>
+        </view>
+        <view class="list-item">
+          <image class="icon-l" src="../../../image/icon_serve.png"></image>
+          <text>该商家支持在线支付</text>
+        </view>
+      </view>
+    </view>
     
   </view>
 
-  <view class="shopping_cart flex">
+  <view class="shopping_cart flex" hidden="{{curNavMenuIndex!=0}}">
     <view class="cart_img text-center">
       <image src="../../../image/icon_shopping_cart.png"></image>
     </view>

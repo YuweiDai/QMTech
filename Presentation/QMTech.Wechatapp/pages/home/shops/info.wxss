@@ -72,7 +72,7 @@
 
 
 
-.dish_container,comment_container {
+.dish_container,comment_container,.owner_container {
   height: 100%;
   box-sizing: border-box;
   background-color: #f4f4f4;
@@ -142,8 +142,8 @@
 .comment-item
 {
 	position:relative;
-		font-size:12px;
-		color:silver;
+	font-size:12px;
+	color:silver;
 }
 .comment-item .avatar
 {
@@ -165,9 +165,21 @@
 
 .comment-item .info .name .date
 {
-		font-size:12px;
-		color:silver;
+	font-size:12px;
+	color:silver;
 }
+
+.noticement .title
+{
+	font-size:18px;
+	color:#eb4f38;
+	font-weight:bold;
+}
+.noticement .content
+{
+	font-size:16px;
+}
+
 .shopping_cart
 {
 	position:fixed;

@@ -96,6 +96,11 @@
 
     naveToStore: function (e) {
         wx.navigateTo({ url: 'shops/info?id=' + e.currentTarget.id });
+    },
+
+    navToSearch:function(e)
+    {
+        wx.navigateTo({ url: 'search' });
     }
 
 })

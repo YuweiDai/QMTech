@@ -6,6 +6,100 @@
     background-position: top;
 }
 
+.top-btns
+{
+	position:absolute;
+	top:10px;	
+	width:100%;
+	color: #ffffff !important;    
+    text-align: center; 
+}
+
+.bg
+{
+	position:absolute;
+    background-color: #000000;
+	opacity:0.4;  
+	height:30px;
+	border-radius: 50px;
+	padding-right: 10px;
+	padding-left: 10px;
+	top:-5px;
+	left:-10px;
+}
+
+.top-btns text
+{
+	overflow:hidden;
+	height:20px;
+	display:block;
+	font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+	position:absolute;
+	z-index:10;
+}
+
+.top-btns image
+{
+	width:16px;
+	height:16px;
+	position:absolute;
+}
+
+.address-btn,.search-btn
+{
+	display:block;
+	position:absolute;
+	height:30px;
+}
+
+.address-btn
+{
+	width:150px;
+	left:50%;
+	margin-left:-75px;
+}
+
+.address-btn .bg
+{
+	width:150px;
+}
+
+.address-btn text
+{
+	width:120px;
+	left:15px;
+}
+
+.address-btn image
+{
+	top:2px;
+	right:0px;
+}
+
+.search-btn {  	
+	width:60px;
+	right:15px;
+}
+
+.search-btn  .bg
+{
+	width:60px;
+}
+
+.search-btn image
+{
+	top:2px;
+	left:0px;
+}
+
+.search-btn text
+{
+	width:30px;
+	left:20px;
+}
+
 .menueview{
   display:flex;
   background-color:#FFF;

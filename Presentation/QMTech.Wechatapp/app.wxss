@@ -49,7 +49,7 @@ page {
     border:none !important;
 }
 
-.bg-white {
+.section {
   background-color: #fff;
   color: #58666e;
 }
@@ -61,13 +61,49 @@ page {
   border-radius: 50%;
 }
 
-.bg-white .text-muted {
+.list-panel 
+{
+	background:#ffffff;
+}
+
+.list-item
+{
+	height:80rpx;
+	position:relative;
+	padding:10rpx 80rpx;
+	font-size:30rpx;
+	line-height:80rpx;	
+}
+
+.list-item  image
+{
+	height:40rpx;
+	width:40rpx;
+	position:absolute;
+	top:30rpx;
+}
+.list-item image.icon-l
+{
+	left:20rpx;
+}
+.list-item image.icon-r
+{
+	right:20rpx;
+}
+
+.btn-rounded {
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 50px;
+}
+
+.section .text-muted {
   color: #98a6ad !important;
 }
-.bg-white .lt,
-.bg-white .lter,
-.bg-white .dk,
-.bg-white .dker {
+.section .lt,
+.section .lter,
+.section .dk,
+.section .dker {
   background-color: #fff;
 }
 .bg-white-only {
