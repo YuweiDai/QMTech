@@ -8,7 +8,16 @@
         autoplay: true,
         interval: 3000,
         duration: 1200,
-         
+        categories: [
+            '../../image/food.png',
+            '../../image/food.png',
+            '../../image/food.png',
+            '../../image/food.png',
+            '../../image/food.png',
+            '../../image/food.png',
+            '../../image/food.png',
+            '../../image/food.png'
+        ],
         top_lines: ['儿童身高, 体重发育标准! 快来看看0...', '儿童身高, 体重发育标准! 快来看看1...', ],
         selectedMenu: "附近商户",
         shops: [
@@ -93,14 +102,17 @@
             selectedMenu: "大家都在吃"
         })
     },
-
-    naveToStore: function (e) {
+    navToStores: function (e) {
+        wx.navigateTo({ url: 'shops/list' });
+    },
+    navToStore: function (e) {
         wx.navigateTo({ url: 'shops/info?id=' + e.currentTarget.id });
     },
 
     navToSearch:function(e)
     {
         wx.navigateTo({ url: 'search' });
-    }
+    },
+
 
 })

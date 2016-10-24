@@ -9,7 +9,7 @@
 .top-btns
 {
 	position:absolute;
-	top:10px;	
+	top:20rpx;	
 	width:100%;
 	color: #ffffff !important;    
     text-align: center; 
@@ -20,30 +20,30 @@
 	position:absolute;
     background-color: #000000;
 	opacity:0.4;  
-	height:30px;
-	border-radius: 50px;
-	padding-right: 10px;
-	padding-left: 10px;
-	top:-5px;
-	left:-10px;
+	height:50rpx;
+	border-radius: 80rpx;
+	padding-right: 20rpx;
+	padding-left: 20rpx;
+	top:-10rpx;
+	left:-20rpx;
 }
 
 .top-btns text
 {
-	overflow:hidden;
-	height:20px;
+white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+	height:40rpx;
 	display:block;
-	font-size: 14px;
+	font-size: 24rpx;
     font-weight: normal;
-    line-height: 20px;
+    line-height: 30rpx;
 	position:absolute;
 	z-index:10;
 }
 
 .top-btns image
 {
-	width:16px;
-	height:16px;
+	width:32rpx;
+	height:32rpx;
 	position:absolute;
 }
 
@@ -51,64 +51,57 @@
 {
 	display:block;
 	position:absolute;
-	height:30px;
+	height:60rpx;
 }
 
 .address-btn
 {
-	width:150px;
+	width:300rpx;
 	left:50%;
-	margin-left:-75px;
+	margin-left:-150rpx;
 }
 
 .address-btn .bg
 {
-	width:150px;
+	width:300rpx;
 }
 
 .address-btn text
 {
-	width:120px;
-	left:15px;
+	width:240rpx;
+	left:30rpx;
 }
 
 .address-btn image
 {
-	top:2px;
-	right:0px;
+	right:0rpx;
 }
 
 .search-btn {  	
-	width:60px;
-	right:15px;
+	width:100rpx;
+	right:30rpx;
 }
 
 .search-btn  .bg
 {
-	width:60px;
+	width:100rpx;
 }
 
 .search-btn image
 {
-	top:2px;
-	left:0px;
+	left:0rpx;
 }
 
 .search-btn text
 {
-	width:30px;
-	left:20px;
+	width:80rpx;
+	left:20rpx;
 }
 
-.menueview{
-  display:flex;
-  background-color:#FFF;
-  padding:5px 0;
-}
-.menue-image{
-  flex:1;
-  height:70px;
-  height:auto;
+.category.section image
+{
+	height:187.5rpx;
+	width:25%;
 }
 
 .top_line_container

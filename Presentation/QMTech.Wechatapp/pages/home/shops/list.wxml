@@ -1,0 +1,10 @@
+<view class="page">
+  <view class="section ">
+    
+  </view>
+  <view class="section" wx:for-items="{{shops}}">
+    <import src="../../templates/shop-list-item.wxml"/>
+    <template is="shop-item" data="{{id:item.id,name:item.name,pic:item.pic,sales:item.sales,timeCost:item.timeCost,star:item.star,deliverFee:item.deliverFee,dist:item.dist}}"/>
+  </view>
+</view>
+

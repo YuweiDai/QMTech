@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/home/index",
-     "pages/home/shops/info",
+    "pages/home/search",
+    "pages/home/shops/info",
+    "pages/home/shops/list",
+
      "pages/mine/index",
 
 

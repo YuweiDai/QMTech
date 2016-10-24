@@ -1,0 +1,18 @@
+<template name="shop-item">
+  <view id="{{id}}" class="nice_item flex b-b wrapper-sm" bindtap="naveToStore">
+    <view class="nice_item_img wrapper-xs">
+      <image src="{{pic}}"  mode=""/>
+    </view>
+    <view class="nice_item_info">
+      <view class="nice_item_info_title m-xs">{{name}}</view>
+      <view class="nice_item_info_item m-xs">
+        <text>月售：{{sales}} 份</text>
+        <text class="right text-right text-danger">{{timeCost}} 分钟</text>
+      </view>
+      <view class="nice_item_info_item m-xs">
+        <text>评分：{{star}} | 运费：{{deliverFee}}</text>
+        <text class="right text-right ">{{dist}} km</text>
+      </view>
+    </view>
+  </view>
+</template>

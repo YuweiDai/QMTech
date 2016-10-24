@@ -14,7 +14,7 @@
   <view class="top-btns">
     <view class="address-btn">
       <view class="bg"></view>
-      <text>送至：衢州市测绘院123123</text>
+      <text>送至：衢州市测绘院</text>
       <image src="../../../image/icon_pull.png"></image>
     </view>
 
@@ -24,37 +24,13 @@
       <text>搜索</text>
     </view>
   </view>
-  
-    <view class="menu__panel">
-        <view class="menueview">
-            <block>
-                <image src="../../image/food.png" mode="center" class="menue-image" />
-            </block>
-            <block>
-                <image src="../../image/food.png" mode="center" class="menue-image" />
-            </block>
-            <block>
-                <image src="../../image/food.png" mode="center" class="menue-image" />
-            </block>
-            <block>
-                <image src="../../image/food.png" mode="center" class="menue-image" />
-            </block>                                                                                                                                                                                                        
-        </view>      
-        <view class="menueview">
-            <block>
-                <image src="../../image/food.png" mode="center" class="menue-image" />
-            </block>
-            <block>
-                <image src="../../image/food.png" mode="center" class="menue-image" />
-            </block>
-            <block>
-                <image src="../../image/food.png" mode="center" class="menue-image" />
-            </block>
-            <block>
-                <image src="../../image/food.png" mode="center" class="menue-image" />
-            </block>                                                                                                                                                                                                        
-        </view>                   
-    </view>
+
+  <view class="section category">
+    <block wx:for-items="{{categories}}">
+      <image src="{{item}}" mode="center" bindtap="navToStores" />
+    </block>
+  </view>
+
       
     <view class="top_line_container">
       <image class="top_line_img" src="../../image/111.png"/>
@@ -91,7 +67,7 @@
         <text class="menu text-center {{selectedMenu =='大家都在吃'? 'active' : ''}}" bindtap="selectProducts">大家都在吃</text>
       </view>
       <view class="shops" wx:if="{{selectedMenu =='附近商户'}}">
-        <view id="{{item.id}}" class="nice_item b-b wrapper-sm" wx:for-items="{{shops}}" bindtap="naveToStore">
+        <view id="{{item.id}}" class="nice_item b-b wrapper-sm" wx:for-items="{{shops}}" bindtap="navToStore">
           <view class="nice_item_img wrapper-xs">
             <image src="{{item.pic}}"  mode=""/>
           </view>

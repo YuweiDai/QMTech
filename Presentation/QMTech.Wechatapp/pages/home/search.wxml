@@ -1,11 +1,38 @@
 <view class="page">
-  <view class="section m-b-sm  b-b">
-    
+  <view class="search section b-b">    
     <view class="search-container">
-      <view class="bg m-sm"></view>
+      <view class="bg"></view>
       <input placeholder="输入关键字进行搜索..." />
-      <image src="../../../image/icon_pull.png"></image>
+      <image src="../../../image/icon_search.png"/>
+      <image src="../../../image/icon_close.png" class="close-btn" />
+      <view class="search_btn"> 搜索 </view>
+    </view>    
+  </view>
+  
+  <!--热门标签-->
+  <view class="section tags wrapper-sm">
+    <view class="title">
+      <image src="../../../image/icon_close.png"/>
+      热门
     </view>
-    
+    <view class="content">   
+      <view class="tag" wx:for-items="{{tags}}">
+        <block> {{item.name}} </block>
+      </view>      
+    </view>
+  </view>
+  
+  <!--搜索历史-->
+  <view class="section history wrapper-sm">
+    <view class="title">
+      <image src="../../../image/icon_history.png"/>
+      历史
+    </view>
+    <view class="content">
+      <view class="history-item" wx:for-items="{{historylist}}">
+       {{item.name}}
+      </view>
+      <view class="clear-btn text-center">点击清空搜索记录</view>
+    </view>
   </view>
 </view>

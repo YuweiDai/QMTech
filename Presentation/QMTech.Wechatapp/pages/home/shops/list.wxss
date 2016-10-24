@@ -1,0 +1,6 @@
+@import "../../templates/shop-list-item.wxss";
+
+.nice-item
+{
+	width:100%;
+}
