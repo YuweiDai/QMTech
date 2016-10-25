@@ -1,0 +1,42 @@
+﻿<view class="page">
+  <view class="section m-b-sm">
+    <view class="flex nav-pills b-b">
+      <block wx:for="{{nav_pills_menus}}">
+        <text class="item text-center {{selectedMenu ==item? 'active' : ''}}" data-item="{{item}}" bindtap="selectItem">{{item}}</text>
+      </block>
+    </view>
+  </view>
+
+  <scroll-view scroll-y="true" style="height: 1000rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view class="order_list ">
+
+      <view class="order_item m-b-md wrapper-sm section" wx:for="{{orders}}" wx:for-item="order">
+        <image class="avatar" src="{{order.shop.pic}}" />
+        <view class="status">{{order.status}}</view>
+        <view class="content">
+          <view class="title">
+            <text class="shop_name text-ellipsis">{{order.shop.name}}</text>
+          </view>
+          <view class="product_list  b-t m-t-sm">
+            <view class="item m-t-sm" wx:for="{{order.products}}" wx:for-item="prodcut">
+              <text class="text-left">{{prodcut.name}}</text>
+              <text class="right">x {{prodcut.count}}</text>
+            </view>
+            <view class="total m-t-sm m-b-sm">
+              <text class="left" wx:if="{{order.productsCount>3}}">...</text>
+              <view class="text-right">
+                共 <text class="font-bold">{{order.productsCount}}</text> 件商品，实付 <text class="font-bold">{{order.fee}}</text>
+              </view>
+            </view>
+
+          </view>
+        </view>
+        <view class="btns b-t padder-t text-right">
+          <button type="primary" size="mini"  plain="false" > 再来一单 </button>
+        </view>
+      </view>
+
+    </view>
+  </scroll-view>
+  
+</view>

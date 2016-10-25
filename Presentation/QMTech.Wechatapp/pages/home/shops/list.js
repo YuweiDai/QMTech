@@ -36,6 +36,17 @@ Page({
         open: true
     }
         ],
+        title:"测试"
     },
- 
+    onLoad: function () {
+        this.setData({
+            title: "餐饮"
+        })
+    },
+    navToSearch: function (e) {
+        wx.navigateTo({ url: "../search" });
+    },
+    navToStore: function (e) {
+        wx.navigateTo({ url: 'info?id=' + e.currentTarget.id });
+    },
 })

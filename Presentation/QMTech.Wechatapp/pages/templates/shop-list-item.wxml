@@ -1,5 +1,5 @@
 <template name="shop-item">
-  <view id="{{id}}" class="nice_item flex b-b wrapper-sm" bindtap="naveToStore">
+  <view id="{{id}}" class="nice_item flex b-b wrapper-sm" bindtap="navToStore">
     <view class="nice_item_img wrapper-xs">
       <image src="{{pic}}"  mode=""/>
     </view>

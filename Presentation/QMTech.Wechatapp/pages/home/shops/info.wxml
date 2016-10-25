@@ -15,16 +15,22 @@
     </view>
   </view>
   
-  <view class="menu_panel flex b-b section">      
+  <view class="flex nav-pills section b-b">
+    <block wx:for-items="{{nav_pills_menus}}">
+      <text class="item text-center {{selectedMenu ==item? 'active' : ''}}" data-item="{{item}}" bindtap="selectItem">{{item}}</text>
+    </block>
+  </view>
+  
+  <!--<view class="menu_panel flex b-b section">      
     <blcok class="menu text-center" wx:for="{{navMenus}}" >
       <text class=" {{curNavMenu==item.id?'active':''}}" bindtap="selectNavMenu" data-index="{{index}}" data-id="{{item.id}}">{{item.name}}</text>
     </blcok>
-  </view>
+  </view>-->
   
-  <view class="page_bd">
+  <view class="section">
 
     <!-- 点菜 -->
-    <view class="dish_container flex flex-direction-row" hidden="{{curNavMenuIndex!=0}}">
+    <view class="dish_container flex flex-direction-row" hidden="{{selectedMenu!='点菜'}}">
       <!-- left aside -->
       <view class="aside flex flex-direction-col">
         <block wx:for="{{navList}}">
@@ -50,8 +56,8 @@
 
     </view>
     
-    <!--评论-->
-    <view class="comment_container text-center" hidden="{{curNavMenuIndex!=1}}">
+    <!--评价-->
+    <view class="comment_container text-center" hidden="{{selectedMenu!='评价'}}">
       <view class="m-t-sm m-b-sm flex section ">
         <view class="flex-item  m-t-sm m-b-sm b-r">
           <view class="full_rate">4.7</view>
@@ -120,7 +126,7 @@
     </view>
     
     <!--商家-->
-    <view class="owner_container" hidden="{{curNavMenuIndex!=2}}">
+    <view class="owner_container" hidden="{{selectedMenu!='商家'}}">
       <view class="noticement m-t-sm section wrapper-md">
         <view class="title text-center m-b-md">商家公告</view>
         <view class="content text-muted">欢迎光临肯德基宅急送，专业外送，全程保温，准时送达！</view>
@@ -130,12 +136,12 @@
         <view class="list-item b-b">
           <image class="icon-l" src="../../../image/icon_tel.png"></image>
           <text>13587126212</text>
-          <image class="icon-r" src="../../../image/arrowright.png"></image>
+          <image class="icon-r" src="../../../image/icon_arrowright.png"></image>
         </view>
         <view class="list-item">
           <image class="icon-l" src="../../../image/icon_location.png"></image>
           <text>衢州市荷花中路468号</text>
-          <image class="icon-r" src="../../../image/arrowright.png"></image>          
+          <image class="icon-r" src="../../../image/icon_arrowright.png"></image>          
         </view>
       </view>
 
@@ -143,12 +149,12 @@
         <view class="list-item b-b">
           <image class="icon-l" src="../../../image/icon_time.png"></image>
           <text>配送时间：00:00-05:30,17:00-23:59</text>
-          <image class="icon-r" src="../../../image/arrowright.png"></image>
+          <image class="icon-r" src="../../../image/icon_arrowright.png"></image>
         </view>
         <view class="list-item">
           <image class="icon-l" src="../../../image/icon_serve.png"></image>
           <text>配送服务：由肯德基提供外送服务</text>
-          <image class="icon-r" src="../../../image/arrowright.png"></image>
+          <image class="icon-r" src="../../../image/icon_arrowright.png"></image>
         </view>
       </view>
 

@@ -20,6 +20,7 @@
         ],
         top_lines: ['儿童身高, 体重发育标准! 快来看看0...', '儿童身高, 体重发育标准! 快来看看1...', ],
         selectedMenu: "附近商户",
+        nav_pills_menus: ["附近商户", "大家都在吃"],
         shops: [
             {
                 id:1,
@@ -92,16 +93,12 @@
 
         ]
     },
-    selectShops: function (e) {
+    selectItem: function (e) {
         this.setData({
-            selectedMenu: "附近商户"
+            selectedMenu: e.currentTarget.dataset.item
         })
     },
-    selectProducts: function (e) {
-        this.setData({
-            selectedMenu: "大家都在吃"
-        })
-    },
+ 
     navToStores: function (e) {
         wx.navigateTo({ url: 'shops/list' });
     },

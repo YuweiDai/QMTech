@@ -1,5 +1,9 @@
 @import "../../templates/shop-list-item.wxss";
 
+page
+{
+	background:#fff;
+}
 .nice-item
 {
 	width:100%;

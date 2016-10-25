@@ -5,63 +5,66 @@
             <text class="userinfo-nickname">{{motto}}</text>
         </view>       
     </view>
-    <view class="page__bd">
-            <view class="flex" style="flex-direction:row;">
-                <view class="flex-item">
-                我的钱包
-                </view>
-                <view class="flex-item">
-                美团红包
-                </view>
-                <view class="flex-item">
-                商家代金券
-                </view>
-            </view>
-      <view class="item__panel">
-        <view class="list">
-            <view class="list__item">
-                <image class="" src="../../image/user.png" background-size="cover"></image>
-                <text class="">我的评价</text>
-            </view>
-            <view class="list__item">
-                <image class="" src="../../image/star.png" background-size="cover"></image>
-                <text class="">我的收藏</text>
-            </view>
-            <view class="list__item border__none">
-                <image class="" src="../../image/user.png" background-size="cover"></image>
-                <text class="">我的地址</text>
-            </view>                               
-        </view>
-      </view>
 
-        <view class="item__panel">
-        <view class="list">
-            <view class="list__item">
-                <image class="" src="../../image/user.png" background-size="cover"></image>
-                <text class="">分享有礼</text>
-            </view>
-            <view class="list__item border__none">
-                <image class="" src="../../image/user.png" background-size="cover"></image>
-                <text class="">商家入驻</text>
-            </view>                               
-        </view>
-      </view>
-
-      <view class="item__panel">
-        <view class="list">
-            <view class="list__item border__none">
-                <image class="" src="../../image/user.png" background-size="cover"></image>
-                <text class="">帮助与反馈</text>
-            </view>                          
-        </view>
-      </view>      
-
-      <view class="item__panel">
-        <view class="list">
-            <view class="list__item border__none">               
-                <text class="text-center">客服电话：XXXXXXXXXX</text>
-            </view>                               
-        </view>
-      </view>          
+  <view class="flex flex-direction-row section">
+    <view class="flex-item">
+      我的钱包
     </view>
+    <view class="flex-item">
+      我的积分
+    </view>
+    <view class="flex-item">
+      商家代金券
+    </view>
+  </view>
+
+  <view class="m-t-sm section">
+    <view class="list-item b-b">
+      <image class="icon-l" src="../../../image/icon_tel.png"></image>
+      <text>我的评价</text>
+      <image class="icon-r" src="../../../image/icon_arrowright.png"></image>
+    </view>
+    <view class="list-item b-b">
+      <image class="icon-l" src="../../../image/icon_location.png"></image>
+      <text>我的收藏468号</text>
+      <image class="icon-r" src="../../../image/icon_arrowright.png"></image>
+    </view>
+    <view class="list-item">
+      <image class="icon-l" src="../../../image/icon_location.png"></image>
+      <text>我的地址</text>
+      <image class="icon-r" src="../../../image/icon_arrowright.png"></image>
+    </view>
+  </view>
+
+  <view class="m-t-sm section">
+    <view class="list-item b-b">
+      <image class="icon-l" src="../../../image/icon_tel.png"></image>
+      <text>分享有礼</text>
+      <image class="icon-r" src="../../../image/icon_arrowright.png"></image>
+    </view>
+    <view class="list-item b-b">
+      <image class="icon-l" src="../../../image/icon_location.png"></image>
+      <text>商家入驻</text>
+      <image class="icon-r" src="../../../image/icon_arrowright.png"></image>
+    </view>
+    <view class="list-item">
+      <image class="icon-l" src="../../../image/icon_location.png"></image>
+      <text>我的地址</text>
+      <image class="icon-r" src="../../../image/icon_arrowright.png"></image>
+    </view>
+  </view>
+
+  <view class="m-t-sm section">
+    <view class="list-item b-b">
+      <image class="icon-l" src="../../../image/icon_tel.png"></image>
+      <text>帮助与反馈</text>
+      <image class="icon-r" src="../../../image/icon_arrowright.png"></image>
+    </view>
+  </view>
+
+  <view class="m-t-sm m-b-sm section">
+    <view class="list-item b-b text-center">
+      客服电话：XXXXXXXXXX
+    </view>
+  </view>
 </view>

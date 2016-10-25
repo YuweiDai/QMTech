@@ -30,7 +30,7 @@
 
 .top-btns text
 {
-white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+	white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 	height:40rpx;
 	display:block;
 	font-size: 24rpx;
@@ -170,27 +170,6 @@ width:50%;height:100%;flex: auto;
 {
 	height:100%;
 	width:100%;
-}
-
-.nice_shops_products
-{
-	height:40px;
-}
-
-.menu
-{
-	flex:1;
-	font-size:16px;
-	height:30px;
-	line-height:30px;
-	margin-top:7px;
-}
-
-.menu.active
-{
-	color:#7266ba;
-	font-weight:bold;
-	border-bottom: #8278c2 4px solid;
 }
 
 .nice_item

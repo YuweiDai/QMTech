@@ -5,22 +5,8 @@ Page({
             name: "测试商家一",
             noticement: "哈哈哈哈哈哈",
         },
-        curNavMenu: 1,
-        curNavMenuIndex: 0,
-        navMenus: [
-			{
-			    id: 1,
-			    name: '点菜'
-			},
-			{
-			    id: 2,
-			    name: '评价'
-			},
-			{
-			    id: 3,
-			    name: '商家'
-			},
-        ],
+        selectedMenu: "点菜",
+        nav_pills_menus: ["点菜", "评价", "商家"],
 
         hidden: false,
         curNav: 1,
@@ -105,15 +91,22 @@ Page({
             })
         }, 2000)
     },
-    selectNavMenu (event) {
-        let id = event.target.dataset.id,
-			index = parseInt(event.target.dataset.index);
-        self = this;
+
+    selectItem: function (e) {
         this.setData({
-            curNavMenu: id,
-            curNavMenuIndex: index
-        })
+            selectedMenu: e.currentTarget.dataset.item
+        });
     },
+
+    //selectNavMenu (event) {
+    //    let id = event.target.dataset.id,
+	//		index = parseInt(event.target.dataset.index);
+    //    self = this;
+    //    this.setData({
+    //        curNavMenu: id,
+    //        curNavMenuIndex: index
+    //    })
+    //},
     selectNav (event) {
         let id = event.target.dataset.id,
 			index = parseInt(event.target.dataset.index);

@@ -62,9 +62,10 @@
     </view>
            
     <view class="section">
-      <view class="flex nice_shops_products b-b">
-        <text class="menu text-center {{selectedMenu =='附近商户'? 'active' : ''}}" bindtap="selectShops">附近商户</text>
-        <text class="menu text-center {{selectedMenu =='大家都在吃'? 'active' : ''}}" bindtap="selectProducts">大家都在吃</text>
+      <view class="flex nav-pills b-b">
+        <block wx:for-items="{{nav_pills_menus}}">
+          <text class="item text-center {{selectedMenu ==item? 'active' : ''}}" data-item="{{item}}" bindtap="selectItem">{{item}}</text>
+        </block>
       </view>
       <view class="shops" wx:if="{{selectedMenu =='附近商户'}}">
         <view id="{{item.id}}" class="nice_item b-b wrapper-sm" wx:for-items="{{shops}}" bindtap="navToStore">

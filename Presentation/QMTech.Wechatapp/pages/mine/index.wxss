@@ -21,44 +21,9 @@
   font:bold;
 }
 
-.item__panel
-{
-   margin-top:30rpx;
-   background:white;
-
-}
-
-.list
-{
-    padding:0 10rpx;
-}
-
-.list__item
-{
-    padding:20rpx 60rpx;  
-    position:relative;    
-    height:60rpx;
-    line-height:60rpx;
-    border-bottom:silver 2rpx solid;  
-}
-.list__item image
-{
-    position:absolute;
-    top:22rpx;
-    left:5rpx;
-    width:50rpx;
-    height:50rpx;
-}
-
-.flex-wrp{
-    height: 100rpx;
-    display:flex;
-    background-color: #FFFFFF;
-}
 .flex-item{
-    width: 33.33%;
+    flex: 1;
+	padding:10rpx;
     height: 100rpx;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
