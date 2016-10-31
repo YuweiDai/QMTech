@@ -1,0 +1,78 @@
+<view class="page">
+  <form bindsubmit="saveAddress">  
+  <view class="section page_hd">
+    <view class="title">新增收获地址</view>
+    <view class="btns">
+      <button class="right" formType="submit">保存</button>
+    </view>
+  </view>
+  
+    <view class="wrapper-md">联系人</view>
+    <view class="section padder-md">
+      <view class="item b-b padder-v">
+        <view class="label text-base">
+          姓名：
+        </view>
+        <view class="content">
+          <input name="name" class="text-base" placeholder="请输入收货人的姓名..."/>
+        </view>
+      </view>
+      <view class="item b-b padder-v">
+        <view class="content">
+          <radio-group class="radio-group" name="sex" >
+            <label class="radio text-base" wx:for="{{items}}">
+              <radio value="{{item.value}}" checked="{{item.checked}}"/>{{item.text}}
+            </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class="item padder-v">
+        <view class="label text-base">
+          手机：
+        </view>
+        <view class="content">
+          <input name="mobile" class="text-base" placeholder="请输入收货人的手机..." type="number"/>
+        </view>
+      </view>
+    </view>
+    <view class="wrapper-md">收货地址</view>
+    <view class="section padder-md">
+      <!--<view class="item b-b padder-v" bindtap="navToMap">
+        <view class="label text-base">
+          地址：
+        </view>
+        <view class="content text-base">
+          点击选择
+        </view>
+        <image class="icon-sm" src="../../../image/icon_arrowright.png" />
+      </view>-->      
+      <view class="item padder-v">
+        <view class="label text-base">
+          地址：
+        </view>
+        <view class="content">
+          <input name="address" class="text-base" placeholder="例：上街16号/幸福家园5号楼" type="text"/>
+        </view>
+      </view>
+    </view>
+
+    <!--<view class="section padder-md m-t-md">
+      <view class="item padder-v text-center text-base">
+        定位到当前地址
+      </view>
+    </view>
+
+    <view class="wrapper-md">附近地址</view>
+    <view class="section padder-md">
+      <view class="item b-b padder-v" bindtap="">
+        测试地址1
+      </view>
+      <view class="item b-b padder-v" bindtap="">
+        测试地址1
+      </view>
+      <view class="item padder-v" bindtap="">
+        测试地址1
+      </view>
+    </view>-->
+  </form>  
+</view>

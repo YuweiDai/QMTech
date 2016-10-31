@@ -1,0 +1,30 @@
+.add_item
+{
+	position:relative;
+}
+.add_item .title
+{
+	font-size:32rpx;
+}
+
+.add_item .content
+{
+	color:silver;
+}
+
+.add_item .icon
+{
+	position:absolute;
+	top:18rpx;
+}
+.scroll-view_H{
+    white-space: nowrap;
+}
+.scroll-view-item{
+    height: 200px;
+}
+.scroll-view-item_H{
+    display: inline-block;
+    width: 100%;
+    height: 200px;
+}

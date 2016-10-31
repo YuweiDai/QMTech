@@ -29,5 +29,8 @@ Page({
     //   })
     //   that.update()
     // })
+  },
+  navToAddress: function (e) {
+      wx.navigateTo({ url: "address/index" });
   }
 })

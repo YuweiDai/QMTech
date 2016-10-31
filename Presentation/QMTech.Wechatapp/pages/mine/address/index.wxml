@@ -1,0 +1,23 @@
+<view class="page">
+  <view class="section page_hd">
+    <view class="title">我的收货地址</view>
+    <view class="btns">
+      <text class="right" bindtap="startManage">{{manageTxt}}</text>
+    </view>
+  </view>
+  <scroll-view class="section"  scroll-y="true" style="height: {{bodyHeight}}px;">
+    <block wx:for="{{addresses}}" wx:for-item="address" wx:for-index="idx">
+      <view class="add_item m-l-md m-r-md {{idx>0?'b-t':''}}" data-id="{{address.id}}" bindtap="itemTap" >
+        <view class="title m-b-md m-t-md">{{address.address_name}}</view>
+        <view class="content m-b-md">
+          <text class="name m-r-md">{{address.name}}   {{address.male?"先生":"女士"}}</text>
+          <text class="mobile">{{address.mobile}}</text>
+        </view>
+        <image wx:if="{{isManaging}}" class="icon" style="right:100rpx;" src="../../image/icon_close.png"  bindtap="navToEdit" />
+        <image wx:if="{{isManaging}}" class="icon" style="right:30rpx;"src="../../image/icon_close.png" bindtap="deleteAdd" />
+      </view>
+    </block>
+  </scroll-view>
+  
+  <view class="section page_ft" bindtap="naveToAdd">新增收获地址</view>
+</view>

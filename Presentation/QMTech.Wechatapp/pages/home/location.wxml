@@ -1,0 +1,8 @@
+﻿<view class="page">
+  <view class="section page_hd">
+    <view class="title">{{title}}</view>
+    <view class="btns">
+      <image src="../../../image/icon_search_black.png" bindtap="navToSearch"></image>
+    </view>
+  </view>
+</view>

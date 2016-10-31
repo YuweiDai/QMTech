@@ -2,6 +2,7 @@ page {
   background-color: #ededed;
   height: 100%;
   font-family:微软雅黑;
+  font-size:28rpx;
 }
 
 .text-center
@@ -59,22 +60,45 @@ page {
   color: #58666e;
 }
 
-.page_hd
+.page_hd,.page_ft
 {
 	height:40rpx;
 	line-height:40rpx;
 	font-size:36rpx;
 	text-align:center;
 	padding:20rpx 0;
-	border-bottom:1px solid silver;
 	position:relatvie;
+}
+.page_hd
+{
+	border-bottom:1px solid silver;
+}
+
+.page_ft
+{
+	border-top:1px solid silver;
 }
 
 .page_hd .btns
 {		
 	position:absolute;
 	right:10rpx;
-	top:20rpx;
+	top:-1rpx;
+}
+
+.page_hd .btns button
+{
+
+	line-height:40rpx;
+	padding:20rpx 30rpx;
+	-webkit-tap-highlight-color:#f0f0f0f;
+	border-radius:0;
+	background:white;
+}
+
+.page_hd .btns button:after
+{
+	border:none;
 }
 
 .page_hd .btns image
@@ -142,6 +166,86 @@ page {
   padding-left: 15rpx;
   border-radius: 50rpx;
 }
+
+image.icon
+{
+	width:48rpx;
+	height:48rpx;
+}
+
+image.icon-sm
+{
+	width:36rpx;
+	height:36rpx;
+}
+
+
+.section.search
+{
+	height:90rpx;
+}
+.search-container
+{
+	position:absolute;
+	width:750rpx;
+	height:90rpx;
+}
+
+.bg
+{
+	position:absolute;
+    background-color: #f0f0f0;
+	height:60rpx;
+	border-radius: 50px;
+	width:550rpx;
+	margin:15rpx 25rpx;
+}
+
+.search-container input
+{
+	position:absolute;
+	z-index:10;
+	width:430rpx;
+	left:80rpx;
+	top:20rpx;
+	height:20rpx;
+	font-size:28rpx;
+	line-height:20rpx;
+}
+
+.search-container image
+{
+	width:32rpx;
+	height:32rpx;
+	position:absolute;
+	top:30rpx;
+	left:40rpx;
+}
+
+.search-container image.close-btn
+{
+	left:520rpx;
+}
+
+.search_btn
+{
+	height:60rpx;
+	position:absolute;
+	right:10rpx;
+	top:15rpx;
+	width:100rpx;
+	display:block;
+	padding-left:28rpx;
+	padding-right:28rpx;
+	font-size:28rpx;
+	line-height:60rpx;
+	text-align:center;
+	border-radius:5px;
+	overflow:hidden;
+	color:#ffffff;
+	background-color:#E64340;
+}
+
 
 .section .text-muted {
   color: #98a6ad !important;
@@ -418,19 +522,19 @@ a.text-black:hover {
   font-size: 2em;
 }
 .text-lg {
-  font-size: 18rpx;
+  font-size: 36rpx;
 }
 .text-md {
-  font-size: 16rpx;
+  font-size: 32rpx;
 }
 .text-base {
-  font-size: 14rpx;
+  font-size: 28rpx;
 }
 .text-sm {
-  font-size: 13rpx;
+  font-size: 26rpx;
 }
 .text-xs {
-  font-size: 12rpx;
+  font-size: 24rpx;
 }
 .text-xxs {
   text-indent: -9999rpx;

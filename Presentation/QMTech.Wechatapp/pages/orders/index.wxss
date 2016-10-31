@@ -1,0 +1,35 @@
+.order_item
+{
+	position:relative;	
+}
+
+.order_item image
+{
+	width:100rpx;
+	height:100rpx;
+	margin: 0rpx;
+	top:20rpx;
+	left:10rpx;
+	position:absolute;
+}
+
+.order_item .status
+{
+	position:absolute;
+	font-size:28rpx;
+	right:10rpx;
+	top:18rpx;
+}
+
+.order_item .content
+{
+	margin-left:110rpx;
+	font-size:28rpx;
+}
+
+.order_item .content .title
+{
+	width:400rpx;
+	font-size:40rpx;
+	font-weight:bold;
+}
