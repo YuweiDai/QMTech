@@ -47,7 +47,7 @@
       <text>商家入驻</text>
       <image class="icon-r" src="../../../image/icon_arrowright.png"></image>
     </view>
-    <view class="list-item">
+    <view class="list-item" bindtap="navToAddress">
       <image class="icon-l" src="../../../image/icon_location.png"></image>
       <text>我的地址</text>
       <image class="icon-r" src="../../../image/icon_arrowright.png"></image>

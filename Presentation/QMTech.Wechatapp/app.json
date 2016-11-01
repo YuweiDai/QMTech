@@ -2,11 +2,14 @@
   "pages": [
     "pages/home/index",
     "pages/home/search",
+    "pages/home/location",
     "pages/home/shops/info",
     "pages/home/shops/list",
-    "pages/orders/index",
-     "pages/orders/detail",
-     "pages/mine/index"
+     "pages/orders/index",
+    "pages/mine/index",
+    "pages/mine/address/index",
+    "pages/mine/address/add",
+     "pages/mine/address/map"
   ],
   "window": {
     "navigationBarTextStyle": "#fbf9fe",

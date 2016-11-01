@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="search section b-b">
+    <view class="search-container">
+      <view class="bg"></view>
+      <input placeholder="请输入小区/大厦/学校等进行搜索..." />
+      <image src="../../../image/icon_search.png"/>
+      <image src="../../../image/icon_close.png" class="close-btn" />
+      <view class="search_btn"> 搜索 </view>
+    </view>
+  </view>
+  <map longitude="{{lng}}" latitude="{{lat}}" sacle="11" style="width: 100%; height: {{bodyHeight}}px;"></map>
+  <scroll-view class="section"  scroll-y="true" style="height: {{bodyHeight}}px;">
+    
+  </scroll-view>
+</view>
