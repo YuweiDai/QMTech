@@ -7,10 +7,10 @@
     </view>
   </view>
 
-  <scroll-view scroll-y="true" style="height: 1000rpx;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <scroll-view scroll-y="true" style="height: 1000rpx;">
     <view class="order_list ">
 
-      <view class="order_item m-b-md wrapper-sm section" wx:for="{{orders}}" wx:for-item="order">
+      <view class="order_item m-b-md wrapper-sm section" wx:for="{{orders}}" wx:for-item="order" bindtap="navToOrderDetail">
         <image class="avatar" src="{{order.shop.pic}}" />
         <view class="status">{{order.status}}</view>
         <view class="content">

@@ -4,7 +4,8 @@
     "pages/home/search",
     "pages/home/shops/info",
     "pages/home/shops/list",
-     "pages/orders/index",
+    "pages/orders/index",
+     "pages/orders/detail",
      "pages/mine/index"
   ],
   "window": {
