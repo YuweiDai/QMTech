@@ -1,4 +1,4 @@
-﻿Page({
+Page({
     data: {
         background: ['http://img.waimai.baidu.com/pb/0e0d97764c447207ed3c08834089b7c96e@w_750,q_90',
          'http://img.waimai.baidu.com/pb/4225d918b283ebb1060548bb1875e040d0',
@@ -9,14 +9,14 @@
         interval: 3000,
         duration: 1200,
         categories: [
-            '../../image/food.png',
-            '../../image/food.png',
-            '../../image/food.png',
-            '../../image/food.png',
-            '../../image/food.png',
-            '../../image/food.png',
-            '../../image/food.png',
-            '../../image/food.png'
+            '../../image/icon_food.png',
+            '../../image/icon_market.png',
+            '../../image/icon_fruit.png',
+            '../../image/icon_bread.png',
+            '../../image/icon_afternoon.png',
+            '../../image/icon_night.png',            
+            '../../image/icon_breakfast.png',
+            '../../image/icon_around.png'
         ],
         top_lines: ['儿童身高, 体重发育标准! 快来看看0...', '儿童身高, 体重发育标准! 快来看看1...', ],
         selectedMenu: "附近商户",

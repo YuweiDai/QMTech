@@ -9,6 +9,8 @@ App({
     wx.setStorageSync('logs', logs);
 
     common.getCurrentLocation();
+
+    this.getUserInfo();
   },
 
   getUserInfo:function(cb){
