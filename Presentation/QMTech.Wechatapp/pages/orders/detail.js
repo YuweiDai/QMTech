@@ -1,6 +1,4 @@
-﻿//index.js
-//获取应用实例
-var app = getApp()
+﻿var app = getApp()
 Page({
     data: {
         selectedMenu: "全部订单",
@@ -53,7 +51,7 @@ Page({
                         count: 1
                     }
                 ],
-                productsCount:4,
+                productsCount: 4,
                 fee: 51
             },
             {
@@ -113,7 +111,7 @@ Page({
             selectedMenu: e.currentTarget.dataset.item
         })
     },
-    navToOrderDetail: function (e) {       
-        wx.navigateTo({ url: "detail?id=123" });
+    navToOrderDetail: function () {
+        wx.navigateTo({ url: "detail?id=123" })
     }
 })
