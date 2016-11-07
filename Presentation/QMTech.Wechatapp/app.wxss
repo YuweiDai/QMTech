@@ -191,7 +191,7 @@ image.icon-sm
 	height:90rpx;
 }
 
-.bg
+.search-container .bg
 {
 	position:absolute;
     background-color: #f0f0f0;
