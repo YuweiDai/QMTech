@@ -18,17 +18,60 @@ App({
     if(this.globalData.userInfo){
       typeof cb == "function" && cb(this.globalData.userInfo)
     }else{
-      //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo;
-              typeof cb == "function" && cb(that.globalData.userInfo)
-            }
-          })
+       wx.login({
+      success: function(res) {
+          if (res.code) {
+
+              wx.getUserInfo({
+                  success: function (res1) {
+                      console.log(res1);
+                  }
+              })
+
+            //发起网络请求
+            var url = 'https://api.weixin.qq.com/sns/jscode2session?appid=wxf1fe2ec4f67ca88d&secret=89d07bfc96a63e8f4e56bbeeb76bc829&js_code=' + res.code + '&grant_type=authorization_code';
+
+            wx.request({
+                url: 'https://api.weixin.qq.com/sns/jscode2session',
+                method:"Get",
+                data: {
+                        appid:"wxf1fe2ec4f67ca88d",
+                        secret:"89d07bfc96a63e8f4e56bbeeb76bc829",
+                        code:res.code,
+                        grant_type:"authorization_code"
+                },
+                header: {
+                    'Content-Type': 'application/json'
+                },
+                success: function (res) {
+                    console.log(res.data)
+                },
+                fail: function (a) {
+                    console.log(a);
+                }
+            });
+
+          //wx.request({
+          //    url: url,
+
+          //  data: {
+          //    //appid:"wxf1fe2ec4f67ca88d",
+          //    //secret:"89d07bfc96a63e8f4e56bbeeb76bc829",
+          //    code:res.code,
+          //    //grant_type:"authorization_code"
+          //  },
+          //  success: function (r) {
+          //      console.log(r);
+          //  },
+          //  fail: function (a) {
+          //      console.log(a);
+          //  }
+          //});
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
         }
-      });
+      }
+    });
     }
   },
   globalData:{
