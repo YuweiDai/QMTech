@@ -91,7 +91,7 @@ page {
 
 	line-height:40rpx;
 	padding:20rpx 30rpx;
-	-webkit-tap-highlight-color:#f0f0f0f;
+	-webkit-tap-highlight-color:#f0f0f0;
 	border-radius:0;
 	background:white;
 }

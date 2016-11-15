@@ -25,16 +25,15 @@
     </view>
   </view>
 
-  <view class="section category">
+  <view class="section category m-b-md">
     <block wx:for-items="{{categories}}">
       <image src="{{item}}" mode="center" bindtap="navToStores" />
     </block>
   </view>
-
       
-    <view class="top_line_container">
-      <image class="top_line_img" src="../../image/111.png"/>
-      <view class="top_line_swipers">
+    <!--<view class="section news">
+      <image src="../../image/111.png"/>
+      <view class="swipers">
           <swiper vertical="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
               <block wx:for-items="{{top_lines}}">
                   <swiper-item class="top_line_swiper">
@@ -43,7 +42,9 @@
               </block>                
           </swiper>                
       </view>
-    </view>
+    </view>-->
+
+    <!--拼单-->
 
     <view class="activity section b-t b-b m-t-xs">
       <view class="left b-r">
