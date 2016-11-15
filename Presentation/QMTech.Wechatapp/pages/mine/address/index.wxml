@@ -2,7 +2,7 @@
   <view class="section page_hd">
     <view class="title">我的收货地址</view>
     <view class="btns">
-      <text class="right" bindtap="startManage">{{manageTxt}}</text>
+      <button class="right" bindtap="startManage">{{manageTxt}}</button>
     </view>
   </view>
   <scroll-view class="section"  scroll-y="true" style="height: {{bodyHeight}}px;">

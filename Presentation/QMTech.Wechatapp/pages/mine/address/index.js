@@ -30,7 +30,16 @@
         ],
         currentAddressId:0
     },
-
+    onPullDownRefresh: function () {
+        console.log('onPullDownRefresh', new Date())
+    },
+    stopPullDownRefresh: function () {
+        wx.stopPullDownRefresh({
+            complete: function (res) {
+                console.log(res, new Date())
+            }
+        })
+    },
     onLoad: function () {
         var _this = this;
         wx.getSystemInfo({
