@@ -5,7 +5,7 @@ App({
     onLaunch: function () {
 
         wx.login({
-            success: function(res) {
+            success: function (res) {
                 if (res.code) {
                     //发起网络请求
                     wx.request({
@@ -17,7 +17,8 @@ App({
                 } else {
                     console.log('获取用户登录态失败！' + res.errMsg)
                 }
-            };
+            }
+        });
 
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []
