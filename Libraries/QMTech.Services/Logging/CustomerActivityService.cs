@@ -192,7 +192,7 @@ namespace QMTech.Services.Logging
         public virtual ActivityLog InsertActivity(string systemKeyword,
             string comment, params object[] commentParams)
         {
-            return InsertActivity(systemKeyword, comment, _workContext.CurrentUser, commentParams);
+            return InsertActivity(systemKeyword, comment, _workContext.CurrentCustomer, commentParams);
         }
         
 

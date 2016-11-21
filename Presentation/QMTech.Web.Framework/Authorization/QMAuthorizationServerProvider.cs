@@ -19,6 +19,9 @@ namespace QMTech.Web.Framework.Security.Authorization
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
+            var type = context.Request.Query["type"];
+
+
             var customerRegistrationService = EngineContext.Current.Resolve<ICustomerRegistrationService>();
             var user = await customerRegistrationService.ValidateCustomerAsync(context.UserName, context.Password);
             if (user == null)

@@ -116,7 +116,7 @@ namespace QMTech.Web.Framework
         /// <summary>
         /// Gets or sets the current customer
         /// </summary>
-        public virtual Customer CurrentUser
+        public virtual Customer CurrentCustomer
         {
             get
             {

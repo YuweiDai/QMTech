@@ -155,6 +155,8 @@
     <Compile Include="Domain\Customers\CustomerRole.cs" />
     <Compile Include="Domain\Customers\CustomerSettings.cs" />
     <Compile Include="Domain\Customers\ExternalAuthenticationRecord.cs" />
+    <Compile Include="Domain\Customers\ExternalAuthenticationSettings.cs" />
+    <Compile Include="Domain\Customers\ExternalAuthSettings.cs" />
     <Compile Include="Domain\Customers\PasswordFormat.cs" />
     <Compile Include="Domain\Customers\RewardPointsHistory.cs" />
     <Compile Include="Domain\Customers\SystemCustomerAttributeNames.cs" />

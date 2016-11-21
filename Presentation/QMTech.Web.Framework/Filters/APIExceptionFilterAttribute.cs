@@ -62,7 +62,7 @@ namespace QMTech.Web.Framework.Filters
             var workContext = EngineContext.Current.Resolve<IWorkContext>();
             var logger = EngineContext.Current.Resolve<ILogger>();
 
-            var customer = workContext.CurrentUser;
+            var customer = workContext.CurrentCustomer;
             logger.Error(exc.Message, exc, customer);
         }
 

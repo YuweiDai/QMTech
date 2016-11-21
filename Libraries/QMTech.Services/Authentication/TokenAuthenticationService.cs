@@ -6,7 +6,7 @@ using System.Web;
 
 namespace QMTech.Services.Authentication
 {
-    public class TokenAuthenticationService:IAuthenticationService
+    public class TokenAuthenticationService : IAuthenticationService
     {
         private readonly HttpContextBase _httpContext;
         private readonly ICustomerService _customerService;
@@ -48,8 +48,8 @@ namespace QMTech.Services.Authentication
             {
                 return null;
             }
-                        
-            var principal = System.Web.HttpContext.Current.User as System.Security.Claims.ClaimsPrincipal;
+
+            var principal = HttpContext.Current.User as ClaimsPrincipal;
             var guidClaim = principal.FindFirst(ct => ct.Type == ClaimTypes.NameIdentifier);
             if (guidClaim == null) return null;
 

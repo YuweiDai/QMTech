@@ -56,5 +56,7 @@ namespace QMTech.Core.Domain.Customers
 
 
         public bool StoreLastVisitedPage { get; set; }
+
+        public bool NotifyNewCustomerRegistration { get; set; }
     }
 }

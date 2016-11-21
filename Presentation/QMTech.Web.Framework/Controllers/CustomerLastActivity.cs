@@ -19,7 +19,7 @@ namespace QMTech.Web.Framework.Controllers
                 return;
 
             var workContext = EngineContext.Current.Resolve<IWorkContext>();
-            var customer = workContext.CurrentUser;
+            var customer = workContext.CurrentCustomer;
 
             //update last activity date
             if (customer.LastActivityDate.AddMinutes(1.0) < DateTime.Now)

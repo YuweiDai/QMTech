@@ -63,9 +63,9 @@ namespace QMTech.Api.Controllers.Client
                 return BadRequest("用户注册已关闭");
             }
 
-            if (_workContext.CurrentUser.IsRegistered()) return BadRequest("当前用户已注册");
+            if (_workContext.CurrentCustomer.IsRegistered()) return BadRequest("当前用户已注册");
 
-            var customer = _workContext.CurrentUser;
+            var customer = _workContext.CurrentCustomer;
             if (customer.IsRegistered()) return BadRequest("当前用户已经注册");
 
             //TODO：自定义属性
@@ -120,6 +120,14 @@ namespace QMTech.Api.Controllers.Client
             foreach (var error in registrationResult.Errors)
                 ModelState.AddModelError("", error);
             return BadRequest(ModelState);
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("WechatLogin")]
+        public IHttpActionResult WechatLogin(string jsCode)
+        {
+            return Ok();
         }
 
         #region 登陆实现

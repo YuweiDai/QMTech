@@ -25,7 +25,7 @@ namespace QMTech.Web.Framework.Controllers
             if (!String.IsNullOrEmpty(currentIpAddress))
             {
                 var workContext = EngineContext.Current.Resolve<IWorkContext>();
-                var customer = workContext.CurrentUser;
+                var customer = workContext.CurrentCustomer;
                 if (!currentIpAddress.Equals(customer.LastIpAddress, StringComparison.InvariantCultureIgnoreCase))
                 {
                     var customerService = EngineContext.Current.Resolve<ICustomerService>();

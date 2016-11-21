@@ -26,7 +26,7 @@ namespace QMTech.Web.Framework.Controllers
         public override void OnActionExecuting(System.Web.Http.Controllers.HttpActionContext actionContext)
         {
             var webContext = EngineContext.Current.Resolve<IWorkContext>();
-            var customer = webContext.CurrentUser;
+            var customer = webContext.CurrentCustomer;
             if (customer == null || !customer.IsRegistered())
             {
                 actionContext.Response = actionContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
