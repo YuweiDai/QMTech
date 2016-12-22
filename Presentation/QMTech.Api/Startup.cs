@@ -14,6 +14,7 @@ using QMTech.Web.Framework.Filters;
 using System.Web.Http.Validation;
 using Autofac.Integration.WebApi;
 using System.Web;
+using Microsoft.Owin.Security;
 
 [assembly: OwinStartup(typeof(QMTech.Api.Startup))]
 namespace QMTech.Api
@@ -53,14 +54,19 @@ namespace QMTech.Api
         public void ConfigureOAuth(IAppBuilder app)
         {
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
-            {
-                AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/token"),
-                AccessTokenExpireTimeSpan = TimeSpan.FromMinutes(10),
+            {               
+                TokenEndpointPath = new PathString("/token"),              
                 Provider = new QMAuthorizationServerProvider(),
-
+                //AccessTokenProvider=new AccessTokenAuthorizationServerProvider(),
                 //refresh token provider
-                RefreshTokenProvider = new QMRefreshTokenProvider()
+                RefreshTokenProvider = new QMRefreshTokenProvider(),
+
+                AuthenticationMode = AuthenticationMode.Active,
+                //HTTPS is allowed only AllowInsecureHttp = false
+                #if DEBUG
+                AllowInsecureHttp = true,
+                #endif
+                ApplicationCanDisplayErrors = true,
             };
 
             // Token Generation

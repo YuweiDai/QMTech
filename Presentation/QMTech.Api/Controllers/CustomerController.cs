@@ -122,13 +122,6 @@ namespace QMTech.Api.Controllers.Client
             return BadRequest(ModelState);
         }
 
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("WechatLogin")]
-        public IHttpActionResult WechatLogin(string jsCode)
-        {
-            return Ok();
-        }
 
         #region 登陆实现
         //[HttpPost]

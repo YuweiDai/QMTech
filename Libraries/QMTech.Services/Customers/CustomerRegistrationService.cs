@@ -2,7 +2,10 @@
 using QMTech.Core.Domain.Customers;
 using QMTech.Services.Security;
 using System;
+using System.Configuration;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace QMTech.Services.Customers
@@ -66,6 +69,65 @@ namespace QMTech.Services.Customers
 
             return Task.FromResult<Customer>(null); ;
         }
+
+        /// <summary>
+        /// 验证用户的正确性
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        public Task<Customer> ValidateWechatAppCustomerAsync(string code)
+        {
+            // appid:"wxf1fe2ec4f67ca88d",
+            // secret:"89d07bfc96a63e8f4e56bbeeb76bc829",
+            //code: res.code,
+            // grant_type:"authorization_code"
+            var authUrl = ConfigurationManager.AppSettings["url"];
+            var appid= ConfigurationManager.AppSettings["appid"];
+            var secret = ConfigurationManager.AppSettings["secret"];
+
+            string url = "{0}?appid={1}&secret={2}&js_code={3}&grant_type=authorization_code";
+            HttpRequestMessage hrm = new HttpRequestMessage();
+            hrm.Method = HttpMethod.Get;
+            var responese = hrm.CreateResponse(url);
+            var result = responese.Content.ToString();
+
+            return Task.FromResult<Customer>(null); ;
+
+
+            //    //设置HttpClientHandler的AutomaticDecompression
+
+            //    var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip };
+
+
+            //    //创建HttpClient（注意传入HttpClientHandler）
+
+            //    using (var http = new HttpClient())
+
+            //    {
+
+            //        //使用FormUrlEncodedContent做HttpContent
+
+            //        var content = new FormUrlEncodedContent(new Dictionary<string, string>()
+
+            //{
+
+            //    {"id", userId},
+
+            //    {"force_gzip", "1"}
+
+            //});
+
+            //        //await异步等待回应
+
+            //        var response = await http.PostAsync(url, content);
+
+            //        //await异步读取最后的JSON（注意此时gzip已经被自动解压缩了，因为上面的AutomaticDecompression = DecompressionMethods.GZip）
+
+            //        Console.WriteLine(await response.Content.ReadAsStringAsync());
+
+            //    }
+        }
+
 
         /// <summary>
         /// 验证用户密码

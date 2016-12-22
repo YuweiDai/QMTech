@@ -1,5 +1,6 @@
 ﻿using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
+using QMTech.Core.Domain.Customers;
 using QMTech.Core.Infrastructure;
 using QMTech.Services.Customers;
 using System.Collections.Generic;
@@ -19,11 +20,23 @@ namespace QMTech.Web.Framework.Security.Authorization
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
         {
+            Customer user = null;
+            var customerRegistrationService = EngineContext.Current.Resolve<ICustomerRegistrationService>();
+
             var type = context.Request.Query["type"];
 
+            switch (type)
+            {
+                case "wechat":
+                    var code = context.Request.Query["code"];
+                    user = await customerRegistrationService.ValidateWechatAppCustomerAsync(code);
+                    break;
+                default:
+                    user = await customerRegistrationService.ValidateCustomerAsync(context.UserName, context.Password);
+                    break;
+            }
 
-            var customerRegistrationService = EngineContext.Current.Resolve<ICustomerRegistrationService>();
-            var user = await customerRegistrationService.ValidateCustomerAsync(context.UserName, context.Password);
+           
             if (user == null)
             {
                 context.SetError("无效授权", "用户名或密码错误");

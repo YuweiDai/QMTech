@@ -63,7 +63,7 @@
 }
 .type-nav.selected{
 	margin-right: -1px;
-	padding-left::-1px;
+	padding-left:-1px;
 	color: #333;
 	background-color: #fff;
 }

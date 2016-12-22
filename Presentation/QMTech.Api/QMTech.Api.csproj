@@ -176,6 +176,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\DemoController.cs" />
+    <Compile Include="Controllers\ExternalAuthController.cs" />
     <Compile Include="Controllers\PictureAdminController.cs" />
     <Compile Include="Controllers\StoreCategoryAdminController.cs" />
     <Compile Include="Controllers\ProductAdminController.cs" />

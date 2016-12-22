@@ -18,6 +18,13 @@ namespace QMTech.Services.Customers
         Task<Customer> ValidateCustomerAsync(string account, string password);
 
         /// <summary>
+        /// 验证微信小应用用户名密码
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        Task<Customer> ValidateWechatAppCustomerAsync(string code);
+
+        /// <summary>
         /// 用户名可以是手机、邮件以及用户名
         /// </summary>
         /// <param name="account"></param>
@@ -31,6 +38,5 @@ namespace QMTech.Services.Customers
         /// <param name="request"></param>
         /// <returns></returns>
         CustomerRegistrationResult RegisterCustomer(CustomerRegistrationRequest request);
-
     }
 }
