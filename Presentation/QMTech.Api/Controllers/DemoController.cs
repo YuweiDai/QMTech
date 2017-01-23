@@ -112,7 +112,7 @@ namespace QMTech.Api.Controllers
         [Route("Customers")]
         public IHttpActionResult ImportCustomers()
         {
-            return BadRequest("导入关闭");
+          //  return BadRequest("导入关闭");
             var crAdministrators = new CustomerRole
             {
                 Name = SystemCustomerRoleNames.Administrators,

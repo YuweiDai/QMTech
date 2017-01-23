@@ -18,17 +18,11 @@ namespace QMTech.Data
     {
         #region Ctor
 
-        public QMTechObjectContext() : base("QMTechObjectContext")
+        public QMTechObjectContext(string nameOrConnectionString)
+            : base(nameOrConnectionString)
         {
-            //≥ı ºªØ
-            this.Database.Initialize(false);
+            //((IObjectContextAdapter) this).ObjectContext.ContextOptions.LazyLoadingEnabled = true;
         }
-
-        //public QMTechObjectContext( )
-        //    : base("QMTechObjectContext")
-        //{
-        //    //((IObjectContextAdapter) this).ObjectContext.ContextOptions.LazyLoadingEnabled = true;
-        //}
 
         #endregion
 
